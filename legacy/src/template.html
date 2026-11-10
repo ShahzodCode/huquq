@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Konstitutsiyam — huquqiy kelajagim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --kobalt:#1B3F8B; --kobalt-2:#2E5BC0; --firuza:#11998F; --firuza-soft:#DDF3F1;
+  --zafaron:#E9A23B; --zafaron-soft:#FCEFD8; --anor:#C2413A; --anor-soft:#F9E1DF;
+  --paxta:#F5F7FB; --sirt:#FFFFFF; --siyoh:#0F1B33; --matn:#1E2A44; --xira:#5B6782; --chiziq:#DCE2EE;
+  --s1:#1B3F8B; --s2:#11998F; --s3:#E9A23B; --s4:#6C7FD8; --s5:#2C6E8F; --s6:#C2413A;
+  --fs:17px; --r-lg:22px; --r-md:14px; --r-sm:9px;
+  --display:"Unbounded", "Onest", system-ui, sans-serif;
+  --body:"Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+:root[data-theme="dark"]{
+  --paxta:#0E1729; --sirt:#16223A; --siyoh:#060C18; --matn:#E5EAF5; --xira:#9AA6C2; --chiziq:#2A3857;
+  --firuza-soft:#123A3A; --zafaron-soft:#3A2E17; --anor-soft:#3B1E1E; --kobalt:#7FA2F2; --kobalt-2:#9DB8FA;
+}
+*{box-sizing:border-box}
+html{font-size:var(--fs)}
+body{margin:0;background:var(--paxta);color:var(--matn);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
+button,input{font:inherit;color:inherit}
+a{color:var(--kobalt)}
+:focus-visible{outline:3px solid var(--zafaron);outline-offset:2px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);line-height:1.2;color:var(--matn);margin:0}
+h1{font-size:clamp(1.9rem,4.5vw,3.1rem);font-weight:800;letter-spacing:-.01em}
+h2{font-size:clamp(1.35rem,2.6vw,1.8rem);font-weight:700}
+h3{font-size:1.02rem;font-weight:700}
+p{margin:.5em 0}
+.muted{color:var(--xira)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- shell ---------- */
+.app{display:grid;grid-template-columns:270px 1fr;min-height:100vh}
+.side{background:var(--siyoh);color:#E7ECF8;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;padding:22px 16px;overflow:auto}
+.brand{display:flex;gap:12px;align-items:center;padding:4px 8px 22px;text-decoration:none;color:inherit}
+.brand b{font-family:var(--display);font-size:.92rem;line-height:1.15;letter-spacing:.01em}
+.brand small{display:block;font-size:.72rem;color:#9FB0D6;font-weight:500}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav a{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:12px;color:#C9D3EA;text-decoration:none;font-weight:500;font-size:.95rem}
+.nav a:hover{background:#1A2849;color:#fff}
+.nav a[aria-current="page"]{background:#22356A;color:#fff}
+.nav a[aria-current="page"] svg{color:var(--zafaron)}
+.nav svg{width:20px;height:20px;flex:none}
+.side .tools{margin-top:auto;padding:16px 8px 4px;border-top:1px solid #22304F;display:flex;gap:6px;flex-wrap:wrap}
+.tbtn{background:#1A2849;border:0;color:#E7ECF8;border-radius:10px;padding:7px 11px;cursor:pointer;font-size:.85rem}
+.tbtn:hover{background:#26386A}
+.main{min-width:0}
+.view{max-width:1040px;margin:0 auto;padding:40px 36px 120px}
+.topbar,.tabbar{display:none}
+
+@media (max-width:960px){
+  .app{grid-template-columns:1fr}
+  .side{display:none}
+  .topbar{display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:20;background:var(--siyoh);color:#fff;padding:10px 16px}
+  .topbar .brand{padding:0}
+  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;bottom:0;left:0;right:0;z-index:20;background:var(--sirt);border-top:1px solid var(--chiziq);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+  .tabbar a,.tabbar button{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.68rem;color:var(--xira);text-decoration:none;background:none;border:0;padding:4px 0;cursor:pointer}
+  .tabbar svg{width:22px;height:22px}
+  .tabbar [aria-current="page"]{color:var(--kobalt);font-weight:600}
+  .view{padding:24px 16px 110px}
+}
+
+/* ---------- common blocks ---------- */
+.lead{font-size:1.12rem;max-width:62ch}
+.head{margin-bottom:24px}
+.head p{max-width:64ch}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.card{background:var(--sirt);border:1px solid var(--chiziq);border-radius:var(--r-md);padding:18px 18px 16px}
+.card h3{margin-bottom:6px}
+.example{margin-top:10px;padding:10px 12px;border-left:3px solid var(--zafaron);background:var(--zafaron-soft);border-radius:0 10px 10px 0;font-size:.92rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.art{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--kobalt);color:var(--kobalt);background:transparent;border-radius:999px;padding:3px 11px;font-size:.82rem;font-weight:600;cursor:pointer}
+.art:hover{background:var(--kobalt);color:#fff}
+:root[data-theme="dark"] .art:hover{color:#0E1729}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:12px;padding:11px 18px;font-weight:600;cursor:pointer;background:var(--kobalt);color:#fff;text-decoration:none}
+:root[data-theme="dark"] .btn{color:#0E1729}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--kobalt);border:1.5px solid var(--kobalt)}
+.btn.soft{background:var(--firuza-soft);color:var(--matn)}
+.seg{display:inline-flex;background:var(--sirt);border:1px solid var(--chiziq);border-radius:14px;padding:4px;gap:4px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;border-radius:10px;padding:8px 14px;cursor:pointer;font-weight:500;color:var(--xira)}
+.seg button[aria-pressed="true"]{background:var(--kobalt);color:#fff}
+:root[data-theme="dark"] .seg button[aria-pressed="true"]{color:#0E1729}
+.section{margin-top:44px}
+.section > h2{margin-bottom:6px}
+.section > .muted{margin-bottom:16px}
+mark{background:var(--zafaron-soft);color:inherit;border-radius:3px;padding:0 2px}
+.term{border:0;background:none;padding:0;color:inherit;border-bottom:1.5px dotted var(--firuza);cursor:help}
+
+/* ---------- home ---------- */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:center}
+.hero .kicker{color:var(--firuza);font-weight:600;margin-bottom:10px}
+.hero h1{margin-bottom:16px}
+.hero .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.wall{background:var(--siyoh);border-radius:var(--r-lg);padding:16px;position:relative;overflow:hidden}
+.wall::before{content:"";position:absolute;inset:0;opacity:.13;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23E9A23B' stroke-width='1.2'%3E%3Cpath d='M28 4l7 17 17 7-17 7-7 17-7-17-17-7 17-7z'/%3E%3Cpath d='M28 14l14 14-14 14-14-14z'/%3E%3C/g%3E%3C/svg%3E");background-size:56px}
+.tiles{position:relative;display:grid;grid-template-columns:repeat(13,1fr);gap:4px}
+.tile{aspect-ratio:1;border:0;border-radius:5px;font-size:.6rem;font-weight:600;color:rgba(255,255,255,.85);cursor:pointer;padding:0;display:grid;place-items:center;transition:transform .15s}
+.tile:hover,.tile:focus-visible{transform:scale(1.35);z-index:2;box-shadow:0 0 0 2px #fff}
+.tile.dim{opacity:.22}
+.legend{position:relative;display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:12px;font-size:.74rem;color:#C9D3EA}
+.legend button{background:none;border:0;color:inherit;display:flex;gap:6px;align-items:center;cursor:pointer;padding:2px 0;font-size:inherit}
+.legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.wallcap{position:relative;color:#E7ECF8;font-size:.82rem;margin:0 0 10px;display:flex;justify-content:space-between;gap:8px}
+.wallcap b{font-family:var(--display);font-weight:700}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:36px;background:var(--sirt);border:1px solid var(--chiziq);border-radius:var(--r-md)}
+.facts div{padding:16px 18px;border-right:1px solid var(--chiziq)}
+.facts div:last-child{border-right:0}
+.facts b{display:block;font-family:var(--display);font-size:1.6rem;color:var(--kobalt)}
+.facts span{font-size:.86rem;color:var(--xira)}
+.qnav{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.qnav a{display:block;text-decoration:none;color:inherit;background:var(--sirt);border:1px solid var(--chiziq);border-radius:var(--r-md);padding:16px}
+.qnav a:hover{border-color:var(--kobalt)}
+.qnav a h3{display:flex;gap:10px;align-items:center;margin-bottom:4px}
+.qnav a svg{width:22px;height:22px;color:var(--firuza)}
+.qnav a p{font-size:.9rem;color:var(--xira);margin:0}
+.daycard{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;background:var(--kobalt);color:#fff;border-radius:var(--r-lg);padding:22px}
+:root[data-theme="dark"] .daycard{background:#1E3366}
+.daycard .num{font-family:var(--display);font-size:2.6rem;font-weight:800;line-height:1;color:var(--zafaron)}
+.daycard p{max-width:70ch}
+.daycard .btn{background:#fff;color:#1B3F8B}
+.badges{display:flex;flex-wrap:wrap;gap:10px}
+.badge{display:flex;gap:10px;align-items:center;background:var(--sirt);border:1px dashed var(--chiziq);border-radius:12px;padding:10px 14px;font-size:.88rem;color:var(--xira)}
+.badge.on{border-style:solid;border-color:var(--zafaron);color:var(--matn);background:var(--zafaron-soft)}
+.badge svg{width:22px;height:22px}
+.badge.on svg{color:var(--zafaron)}
+
+/* ---------- rights ---------- */
+.gstrip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 28px}
+.gstrip .card{background:var(--firuza-soft);border-color:transparent}
+.rcard{display:flex;flex-direction:column}
+.rcard .cat{font-size:.78rem;color:var(--firuza);font-weight:600;margin-bottom:4px}
+.rcard .chips{margin-top:auto;padding-top:12px}
+.flip{margin-top:10px}
+.flip summary{cursor:pointer;color:var(--kobalt);font-weight:600;font-size:.88rem;list-style:none}
+.flip summary::-webkit-details-marker{display:none}
+.flip summary::before{content:"+ ";}
+.flip[open] summary::before{content:"– ";}
+.flip blockquote{margin:8px 0 0;font-size:.9rem;border-left:3px solid var(--kobalt);padding:4px 0 4px 12px;color:var(--matn)}
+
+/* ---------- student day ---------- */
+.day{display:grid;grid-template-columns:220px 1fr;gap:20px;margin-top:8px}
+.times{display:flex;flex-direction:column;gap:4px;border-left:2px solid var(--chiziq);padding-left:0}
+.times button{text-align:left;border:0;background:none;padding:8px 14px;border-radius:0 10px 10px 0;cursor:pointer;margin-left:-2px;border-left:2px solid transparent;color:var(--xira)}
+.times button b{font-family:var(--display);font-size:.85rem;color:var(--matn);margin-right:8px}
+.times button[aria-selected="true"]{border-left-color:var(--zafaron);background:var(--sirt);color:var(--matn);font-weight:600}
+.dayview{background:var(--sirt);border:1px solid var(--chiziq);border-radius:var(--r-lg);padding:26px;min-height:220px}
+.dayview .clock{font-family:var(--display);font-size:2.2rem;font-weight:800;color:var(--kobalt)}
+.daynav{display:flex;gap:8px;margin-top:18px}
+@media (max-width:700px){.day{grid-template-columns:1fr}.times{flex-direction:row;overflow-x:auto;border-left:0;border-bottom:2px solid var(--chiziq)}.times button{border-left:0;border-bottom:2px solid transparent;border-radius:10px 10px 0 0;margin:0 0 -2px;white-space:nowrap}.times button[aria-selected="true"]{border-bottom-color:var(--zafaron)}.times button span{display:none}}
+
+/* ---------- games ---------- */
+.game{background:var(--sirt);border:1px solid var(--chiziq);border-radius:var(--r-lg);padding:24px;margin-top:16px}
+.gtop{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px;color:var(--xira);font-size:.9rem}
+.bar{height:6px;background:var(--chiziq);border-radius:9px;overflow:hidden;flex:1;min-width:120px}
+.bar i{display:block;height:100%;background:var(--firuza);transition:width .3s}
+.qtext{font-size:1.2rem;font-weight:600;margin:4px 0 16px;max-width:62ch}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;border:1.5px solid var(--chiziq);background:var(--paxta);border-radius:12px;padding:12px 16px;cursor:pointer;display:flex;gap:12px;align-items:center}
+.opt:hover:not([disabled]){border-color:var(--kobalt)}
+.opt .k{flex:none;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--sirt);border:1px solid var(--chiziq);font-weight:700;font-size:.85rem}
+.opt.ok{border-color:var(--firuza);background:var(--firuza-soft)}
+.opt.no{border-color:var(--anor);background:var(--anor-soft)}
+.opt[disabled]{cursor:default}
+.fb{margin-top:16px;padding:14px 16px;border-radius:12px;background:var(--paxta);border:1px solid var(--chiziq)}
+.fb.ok{border-color:var(--firuza)}
+.fb.no{border-color:var(--anor)}
+.fb strong{display:block;margin-bottom:4px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px}
+.result{text-align:center;padding:12px 0}
+.result .big{font-family:var(--display);font-size:3.2rem;font-weight:800;color:var(--kobalt)}
+.quote{font-size:1.02rem;border-left:4px solid var(--zafaron);padding:6px 0 6px 16px;margin:8px 0 18px;max-width:66ch}
+.numopts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.numopts .opt{justify-content:center;font-family:var(--display);font-size:1.15rem;font-weight:700}
+.blitz{text-align:center}
+.blitz .stmt{font-size:1.3rem;font-weight:600;min-height:4.2em;display:grid;place-items:center;max-width:44ch;margin:8px auto 18px}
+.blitz .tf{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:440px;margin:0 auto}
+.blitz .tf button{padding:16px;border-radius:14px;border:0;font-weight:700;font-size:1.05rem;cursor:pointer;color:#fff}
+.tf .t{background:var(--firuza)}.tf .f{background:var(--anor)}
+.timer{font-family:var(--display);font-size:1.4rem;font-weight:800;color:var(--kobalt)}
+.flash{animation:flash .45s}
+@keyframes flash{0%{background:var(--firuza-soft)}100%{background:var(--sirt)}}
+.flash.bad{animation:flashb .45s}
+@keyframes flashb{0%{background:var(--anor-soft)}100%{background:var(--sirt)}}
+
+/* sort game */
+.sortcard{font-size:1.15rem;font-weight:600;padding:22px;border-radius:16px;background:var(--paxta);border:1px solid var(--chiziq);text-align:center;margin-bottom:14px;min-height:5em;display:grid;place-items:center}
+.bins{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bin{border:2px dashed var(--chiziq);border-radius:16px;padding:16px;min-height:150px;background:transparent;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:6px}
+.bin h3{display:flex;justify-content:space-between}
+.bin.h{border-color:var(--firuza)}.bin.b{border-color:var(--zafaron)}
+.bin.drag{background:var(--firuza-soft)}
+.bin ul{margin:0;padding:0 0 0 18px;font-size:.84rem;color:var(--xira)}
+
+/* situations */
+.sitlist .card{cursor:pointer;text-align:left;width:100%;font:inherit;color:inherit}
+.sitlist .card:hover{border-color:var(--kobalt)}
+.sitlist .done{color:var(--firuza);font-size:.82rem;font-weight:600}
+.steps{display:flex;gap:6px;margin-bottom:18px}
+.steps span{flex:1;height:5px;border-radius:9px;background:var(--chiziq)}
+.steps span.on{background:var(--kobalt)}
+.story{font-size:1.08rem;max-width:64ch;background:var(--paxta);border-radius:14px;padding:16px 18px;border:1px solid var(--chiziq)}
+.todo{margin:8px 0 0;padding-left:20px}
+.todo li{margin:6px 0}
+
+/* search */
+.sbox{display:flex;gap:10px;align-items:center;background:var(--sirt);border:1.5px solid var(--chiziq);border-radius:16px;padding:6px 6px 6px 16px}
+.sbox:focus-within{border-color:var(--kobalt)}
+.sbox input{flex:1;border:0;background:transparent;font-size:1.1rem;padding:10px 0;outline:none;min-width:0}
+.hints{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 0}
+.hints button{border:1px solid var(--chiziq);background:var(--sirt);border-radius:999px;padding:4px 12px;cursor:pointer;font-size:.85rem}
+.res{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.res button{text-align:left;background:var(--sirt);border:1px solid var(--chiziq);border-radius:14px;padding:14px 16px;cursor:pointer}
+.res button:hover{border-color:var(--kobalt)}
+.res .n{font-family:var(--display);font-weight:700;color:var(--kobalt);margin-right:8px}
+.res .ch{font-size:.8rem;color:var(--xira)}
+.res p{margin:6px 0 0;font-size:.93rem}
+.toc details{background:var(--sirt);border:1px solid var(--chiziq);border-radius:14px;margin-bottom:8px}
+.toc summary{cursor:pointer;padding:14px 16px;font-weight:600}
+.toc .chap{padding:0 16px 14px}
+.toc .chap h4{margin:10px 0 6px;font-size:.9rem;color:var(--xira);font-weight:600}
+.toc .nums{display:flex;flex-wrap:wrap;gap:6px}
+.toc .nums button{border:1px solid var(--chiziq);background:var(--paxta);border-radius:8px;padding:4px 9px;cursor:pointer;font-size:.85rem;font-weight:600}
+.toc .nums button:hover{border-color:var(--kobalt);color:var(--kobalt)}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(6,12,24,.5);z-index:40;opacity:0;pointer-events:none;transition:opacity .2s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(560px,100%);background:var(--sirt);z-index:41;transform:translateX(100%);transition:transform .25s ease;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.18)}
+.drawer{visibility:hidden}.drawer.on{transform:none;visibility:visible}
+.dhead{padding:20px 22px 16px;border-bottom:1px solid var(--chiziq);display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.dhead .num{font-family:var(--display);font-size:2rem;font-weight:800;color:var(--kobalt);line-height:1}
+.dhead .where{font-size:.8rem;color:var(--xira);margin-top:6px}
+.dbody{padding:18px 22px;overflow:auto;flex:1}
+.dbody .para{margin:0 0 12px;max-width:62ch}
+.dbody .official{font-size:.78rem;color:var(--firuza);font-weight:600;margin-bottom:10px}
+.dbody .note{font-size:.78rem;color:var(--xira);border-top:1px solid var(--chiziq);padding-top:10px;margin-top:14px}
+.dfoot{padding:14px 22px;border-top:1px solid var(--chiziq);display:flex;gap:8px;flex-wrap:wrap}
+.close{border:0;background:var(--paxta);border-radius:10px;width:40px;height:40px;cursor:pointer;font-size:1.3rem;flex:none}
+.related{margin-top:18px}
+.related h4{font-size:.85rem;margin:0 0 6px;color:var(--xira)}
+
+/* sheet & popover */
+.sheet{position:fixed;left:0;right:0;bottom:0;background:var(--sirt);z-index:41;border-radius:20px 20px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom));transform:translateY(100%);transition:transform .25s}
+.sheet{visibility:hidden}.sheet.on{transform:none;visibility:visible}
+.sheet a{display:flex;gap:12px;align-items:center;padding:12px;border-radius:12px;text-decoration:none;color:var(--matn);font-weight:500}
+.sheet a:hover{background:var(--paxta)}
+.sheet svg{width:20px;height:20px;color:var(--firuza)}
+.sheet .tools{display:flex;gap:8px;margin-top:10px;padding-top:12px;border-top:1px solid var(--chiziq)}
+.sheet .tbtn{background:var(--paxta);color:var(--matn)}
+.pop{position:fixed;z-index:50;max-width:280px;background:var(--siyoh);color:#fff;border-radius:12px;padding:10px 12px;font-size:.88rem;box-shadow:0 8px 30px rgba(0,0,0,.25);display:none}
+.pop b{display:block;color:var(--zafaron)}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--siyoh);color:#fff;padding:10px 16px;border-radius:12px;z-index:60;font-size:.9rem;display:none}
+
+/* sources */
+.srcs a{font-weight:600}
+.gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.gloss div{background:var(--sirt);border:1px solid var(--chiziq);border-radius:12px;padding:12px 14px}
+.gloss b{display:block;color:var(--kobalt)}
+.notice{background:var(--zafaron-soft);border-radius:14px;padding:16px 18px;margin-top:16px}
+footer.foot{border-top:1px solid var(--chiziq);margin-top:56px;padding-top:18px;font-size:.84rem;color:var(--xira)}
+
+@media (max-width:860px){
+  .daycard{grid-template-columns:1fr;gap:8px}
+  .hero{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr 1fr}
+  .facts div:nth-child(2){border-right:0}
+  .facts div:nth-child(-n+2){border-bottom:1px solid var(--chiziq)}
+  .gstrip{grid-template-columns:1fr}
+  .numopts{grid-template-columns:1fr 1fr}
+  .tiles{grid-template-columns:repeat(11,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side" aria-label="Asosiy menyu">
+    <a class="brand" href="#bosh"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#1B3F8B"/><path d="M20 6l4.5 9.5L34 20l-9.5 4.5L20 34l-4.5-9.5L6 20l9.5-4.5z" fill="#E9A23B"/><circle cx="20" cy="20" r="4.2" fill="#11998F"/></svg><b>Konstitutsiyam<small>huquqiy kelajagim</small></b></a>
+    <nav class="nav" id="nav"></nav>
+    <div class="tools">
+      <button class="tbtn" data-fs="-1" aria-label="Matnni kichraytirish">A−</button>
+      <button class="tbtn" data-fs="1" aria-label="Matnni kattalashtirish">A+</button>
+      <button class="tbtn" data-theme-toggle>Tungi rejim</button>
+    </div>
+  </aside>
+  <div class="main">
+    <header class="topbar"><a class="brand" href="#bosh"><svg width="32" height="32" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#1B3F8B"/><path d="M20 6l4.5 9.5L34 20l-9.5 4.5L20 34l-4.5-9.5L6 20l9.5-4.5z" fill="#E9A23B"/><circle cx="20" cy="20" r="4.2" fill="#11998F"/></svg><b>Konstitutsiyam<small>huquqiy kelajagim</small></b></a></header>
+    <main id="view" class="view" tabindex="-1"></main>
+  </div>
+</div>
+<nav class="tabbar" id="tabbar" aria-label="Pastki menyu"></nav>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dnum"></aside>
+<div class="sheet" id="sheet" role="dialog" aria-label="Boshqa bo'limlar"></div>
+<div class="pop" id="pop" role="tooltip"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const K = /*__CONST__*/null;
+/*__CONTENT__*/
+</script>
+<script>
+(function(){
+"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const LEX="https://lex.uz/docs/-6445145";
+const CHECKED="2026-yil 10-noyabr";
+
+/* ---------- storage ---------- */
+const store={get(k,d){try{const v=localStorage.getItem("kh_"+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem("kh_"+k,JSON.stringify(v))}catch(e){}}};
+const P=store.get("progress",{read:[],quiz:{},sitDone:[],sortBest:0,blitzBest:0,findBest:0});
+const save=()=>store.set("progress",P);
+
+/* ---------- index constitution ---------- */
+const SECT_SHORT=["Asosiy prinsiplar","Huquqlar, erkinliklar va burchlar","Jamiyat va shaxs","Ma'muriy-hududiy tuzilish","Davlat hokimiyati","O'zgartirish tartibi"].map(s=>s.replace(/'/g,"ʼ").replace("Maʼ","Maʼ").replace("Oʼz","Oʻz"));
+const SCOL=["var(--s1)","var(--s2)","var(--s3)","var(--s4)","var(--s5)","var(--s6)"];
+const ART={};
+K.sections.forEach((s,si)=>s.chapters.forEach(c=>c.articles.forEach(a=>{ART[a.n]=Object.assign({},a,{sec:si,secTitle:s.title,chap:c.title})})));
+const norm=s=>s.toLowerCase().replace(/[ʻʼ'‘’`´]/g,"'").replace(/ё/g,"е");
+const plainArt=n=>ART[n].text.join(" ");
+
+/* ---------- icons ---------- */
+const I={
+ bosh:'<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
+ huquqlar:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+ oquvchi:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/>',
+ burchlar:'<path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/>',
+ sinov:'<path d="M9 3h6l1 3h3v15H5V6h3z"/><path d="M9 13l2 2 4-4"/>',
+ vaziyatlar:'<path d="M4 5h16v11H9l-5 4z"/><path d="M9 9h6M9 12h4"/>',
+ qidiruv:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',
+ manbalar:'<path d="M4 4h6a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4z"/><path d="M20 4h-6a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h7z"/>',
+ yana:'<circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/>',
+ star:'<path d="M12 2l3 6.5 7 .8-5.2 4.8 1.5 7L12 17.6 5.7 21.1l1.5-7L2 9.3l7-.8z"/>'
+};
+const ico=(k,extra="")=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ${extra}>${I[k]}</svg>`;
+const ROUTES=[
+ ["bosh","Bosh sahifa","Sayt maqsadi va Konstitutsiya bir qarashda"],
+ ["huquqlar","Mening huquqlarim","Shaxsiy, siyosiy, iqtisodiy, ijtimoiy va madaniy huquqlar"],
+ ["oquvchi","Oʻquvchi huquqlari","Taʼlim, bolalar va yoshlar huquqlari"],
+ ["burchlar","Fuqarolik burchlarim","Qonunga rioya, hurmat, tabiat va merosni asrash"],
+ ["sinov","Huquqiy bilim sinovi","36 savol, “Moddani toping!” va “Huquqiy bilimdon”"],
+ ["vaziyatlar","Hayotiy vaziyatlar","8 ta voqea: qaysi huquq buzildi?"],
+ ["qidiruv","Konstitutsiyadan qidirish","Modda raqami yoki kalit soʻz boʻyicha"],
+ ["manbalar","Foydali manbalar","Rasmiy matn, lugʻat va qoidalar"]
+];
+$("#nav").innerHTML=ROUTES.map(([k,n])=>`<a href="#${k}" data-r="${k}">${ico(k)}<span>${n}</span></a>`).join("");
+const TABS=["bosh","huquqlar","sinov","qidiruv"];
+const tabName={bosh:"Bosh",huquqlar:"Huquqlar",sinov:"Sinov",qidiruv:"Qidiruv"};
+$("#tabbar").innerHTML=TABS.map(k=>`<a href="#${k}" data-r="${k}">${ico(k)}<span>${tabName[k]}</span></a>`).join("")+`<button id="more" aria-haspopup="dialog">${ico("yana")}<span>Yana</span></button>`;
+$("#sheet").innerHTML=ROUTES.filter(r=>!TABS.includes(r[0])).map(([k,n])=>`<a href="#${k}">${ico(k)}${n}</a>`).join("")+`<div class="tools"><button class="tbtn" data-fs="-1" aria-label="Matnni kichraytirish">A−</button><button class="tbtn" data-fs="1" aria-label="Matnni kattalashtirish">A+</button><button class="tbtn" data-theme-toggle>Tungi rejim</button></div>`;
+
+/* ---------- settings ---------- */
+let fs=store.get("fs",17), theme=store.get("theme",matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+const applySet=()=>{document.documentElement.style.setProperty("--fs",fs+"px");document.documentElement.dataset.theme=theme;$$("[data-theme-toggle]").forEach(b=>b.textContent=theme==="dark"?"Kunduzgi rejim":"Tungi rejim")};
+applySet();
+document.addEventListener("click",e=>{
+ const f=e.target.closest("[data-fs]"); if(f){fs=Math.min(22,Math.max(14,fs+ +f.dataset.fs));store.set("fs",fs);applySet();}
+ if(e.target.closest("[data-theme-toggle]")){theme=theme==="dark"?"light":"dark";store.set("theme",theme);applySet();}
+ const a=e.target.closest("[data-art]"); if(a){e.preventDefault();openArt(+a.dataset.art);}
+ const t=e.target.closest(".term"); if(t){showTerm(t);return}
+ if(!e.target.closest(".pop")) $("#pop").style.display="none";
+});
+
+/* ---------- glossary terms ---------- */
+const GL={}; CONTENT.glossary.forEach(g=>GL[norm(g.t)]=g);
+const TERM_RE=new RegExp("\\b("+["daxlsiz","prezumpsiya","referendum","senzura","inklyuziv","ombudsman","advokat","mansabdor shaxs","vijdon erkinligi","muqobil"].join("|")+")[a-zʻʼ]*","gi");
+const termKey={daxlsiz:"daxlsizlik",prezumpsiya:"aybsizlik prezumpsiyasi",referendum:"referendum",senzura:"senzura",inklyuziv:"inklyuziv taʼlim",ombudsman:"ombudsman",advokat:"advokat","mansabdor shaxs":"mansabdor shaxs","vijdon erkinligi":"vijdon erkinligi",muqobil:"muqobil xizmat"};
+const withTerms=s=>esc(s).replace(TERM_RE,(m,base)=>{const g=GL[norm(termKey[base.toLowerCase()]||base)];return g?`<button class="term" data-t="${esc(g.t)}">${m}</button>`:m});
+function showTerm(btn){const g=CONTENT.glossary.find(x=>x.t===btn.dataset.t);const p=$("#pop");p.innerHTML=`<b>${esc(g.t)}</b>${esc(g.d)}`;p.style.display="block";const r=btn.getBoundingClientRect();p.style.left=Math.min(innerWidth-296,Math.max(8,r.left))+"px";p.style.top=(r.bottom+8)+"px";}
+
+/* ---------- helpers ---------- */
+const artChips=arts=>`<div class="chips">${arts.map(n=>`<button class="art" data-art="${n}" aria-label="${n}-moddani ochish">${n}-modda</button>`).join("")}</div>`;
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const toast=m=>{const t=$("#toast");t.textContent=m;t.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display="none",1800)};
+const foot=()=>`<footer class="foot">Sayt umumiy maʼrifiy maqsadga xizmat qiladi va rasmiy huquqiy maslahat oʻrnini bosmaydi. Modda matnlari <a href="${LEX}">lex.uz</a> rasmiy manbasidan oʻzgarishsiz olingan; oxirgi tekshiruv: ${CHECKED}. Saytdan foydalanish uchun hech qanday shaxsiy maʼlumot talab qilinmaydi.</footer>`;
+
+/* ---------- drawer ---------- */
+let lastFocus=null;
+function openArt(n){
+ const a=ART[n]; if(!a) return;
+ lastFocus=document.activeElement;
+ if(!P.read.includes(n)){P.read.push(n);save();}
+ const rel=CONTENT.rights.filter(r=>r.arts.includes(n)).concat(CONTENT.duties.filter(r=>r.arts.includes(n)));
+ const d=$("#drawer");
+ d.innerHTML=`<div class="dhead"><div><div class="num" id="dnum">${n}-modda</div><div class="where">${esc(SECT_SHORT[a.sec])}${a.chap?" · "+esc(a.chap):""}</div></div><button class="close" id="dclose" aria-label="Yopish">×</button></div>
+ <div class="dbody"><div class="official">Rasmiy matn — oʻzgarishsiz</div>${a.text.map(p=>`<p class="para">${esc(p)}</p>`).join("")}
+ ${a.notes?`<div class="note">${a.notes.map(esc).join("<br>")}</div>`:""}
+ ${rel.length?`<div class="related"><h4>Sodda tilda</h4>${rel.map(r=>`<p><b>${esc(r.title)}.</b> ${esc(r.simple)}</p>`).join("")}</div>`:""}</div>
+ <div class="dfoot"><a class="btn" href="${LEX}#${a.anchor}" target="_blank" rel="noopener">Rasmiy manbada ochish</a><button class="btn ghost" id="dcopy">Matndan nusxa olish</button>
+ ${n>1?`<button class="btn soft" data-art="${n-1}" aria-label="Oldingi modda">‹ ${n-1}</button>`:""}${n<155?`<button class="btn soft" data-art="${n+1}" aria-label="Keyingi modda">${n+1} ›</button>`:""}</div>`;
+ d.classList.add("on");$("#scrim").classList.add("on");$("#dclose").focus();
+ $("#dclose").onclick=closeArt;
+ $("#dcopy").onclick=async()=>{try{await navigator.clipboard.writeText(`${n}-modda. ${a.text.join("\n")}\nManba: ${LEX}`);toast("Nusxa olindi")}catch(e){toast("Nusxa olib boʻlmadi — matnni belgilab oling")}};
+}
+function closeArt(){$("#drawer").classList.remove("on");$("#scrim").classList.remove("on");$("#sheet").classList.remove("on");if(lastFocus)lastFocus.focus();}
+$("#scrim").onclick=closeArt;
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeArt()});
+$("#more").onclick=()=>{lastFocus=$("#more");$("#sheet").classList.add("on");$("#scrim").classList.add("on");$("#sheet a").focus()};
+$("#sheet").addEventListener("click",e=>{if(e.target.closest("a"))closeArt()});
+
+/* ---------- views ---------- */
+const V={};
+
+V.bosh=()=>{
+ const dayN=CONTENT.findPool[Math.floor(Date.now()/864e5)%CONTENT.findPool.length];
+ const badges=[
+  ["Kashfiyotchi","10 ta moddani oʻqing",P.read.length>=10],
+  ["Test ustasi","Istalgan darajada 10+ ball",Object.values(P.quiz).some(v=>v>=10)],
+  ["Vaziyat tahlilchisi","8 ta vaziyatni yeching",P.sitDone.length>=8],
+  ["Huquq yoki burch","Saralashda 14/14",P.sortBest>=14],
+  ["Huquqiy bilimdon","Bilimdon oʻyinida 15+ ball",P.blitzBest>=15],
+  ["Modda ovchisi","“Moddani toping!”da 8+",P.findBest>=8]];
+ return `<section class="hero">
+  <div><div class="kicker">2023-yilgi yangi tahrir asosida</div>
+   <h1>Konstitutsiyam — huquqiy kelajagim</h1>
+   <p class="lead">Asosiy qonunimiz 155 moddadan iborat. Bu yerda ularni oʻz tilingda oʻqiysan, oʻz huquqing va burchingni topasan, bilimingni oʻyinlar va hayotiy vaziyatlarda sinab koʻrasan.</p>
+   <div class="actions"><a class="btn" href="#huquqlar">Huquqlarimni koʻrish</a><a class="btn ghost" href="#sinov">Bilimimni sinash</a></div>
+  </div>
+  <div class="wall" aria-label="155 modda: har bir koshin — bitta modda">
+   <p class="wallcap"><b>155 modda — 155 koshin</b><span>Koshinni bosing</span></p>
+   <div class="tiles" id="tiles">${Object.values(ART).map(a=>`<button class="tile" data-art="${a.n}" data-sec="${a.sec}" style="background:${SCOL[a.sec]}" aria-label="${a.n}-modda, ${esc(SECT_SHORT[a.sec])}">${a.n}</button>`).join("")}</div>
+   <div class="legend">${SECT_SHORT.map((s,i)=>`<button data-sec="${i}" aria-pressed="false"><i style="background:${SCOL[i]}"></i>${i+1}. ${esc(s)}</button>`).join("")}</div>
+  </div>
+ </section>
+ <div class="facts"><div><b>155</b><span>modda</span></div><div><b>27</b><span>bob</span></div><div><b>6</b><span>boʻlim va muqaddima</span></div><div><b>30.04.2023</b><span>umumxalq referendumida qabul qilingan</span></div></div>
+ <section class="section"><h2>Bugungi modda</h2><p class="muted">Har kuni yangi modda bilan tanishing.</p>
+  <div class="daycard"><div class="num">${dayN}</div><div><p>${esc(ART[dayN].text[0])}</p><button class="btn" data-art="${dayN}">Toʻliq oʻqish</button></div></div></section>
+ <section class="section"><h2>Boʻlimlar</h2><p class="muted">“Mening huquqim qaysi?”, “Bunday vaziyatda nima qilishim kerak?”, “Bilimimni qanday tekshiraman?” — javoblar shu yerda.</p>
+  <div class="qnav">${ROUTES.slice(1).map(([k,n,d])=>`<a href="#${k}"><h3>${ico(k)}${n}</h3><p>${d}</p></a>`).join("")}</div></section>
+ <section class="section"><h2>Mening yutuqlarim</h2><p class="muted">Natijalar faqat shu qurilmada saqlanadi. Oʻqilgan moddalar: ${P.read.length} / 155.</p>
+  <div class="badges">${badges.map(([t,d,on])=>`<div class="badge ${on?"on":""}">${ico("star")}<div><b>${t}</b><br>${d}</div></div>`).join("")}</div></section>
+ ${foot()}`;
+};
+V.bosh.after=()=>{
+ const lg=$$(".legend button");
+ lg.forEach(b=>b.onclick=()=>{const on=b.getAttribute("aria-pressed")!=="true";lg.forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed",String(on));$$(".tile").forEach(t=>t.classList.toggle("dim",on&&t.dataset.sec!==b.dataset.sec));});
+};
+
+let rightsCat="hammasi";
+V.huquqlar=()=>`<div class="head"><h1>Mening huquqlarim</h1><p class="lead">Har bir kartada huquq sodda tilda tushuntirilgan, hayotiy misol berilgan va rasmiy modda koʻrsatilgan. Modda raqamini bossangiz, uning rasmiy matni ochiladi.</p></div>
+ <div class="gstrip">${CONTENT.guarantees.map(g=>`<div class="card"><h3>${esc(g.title)}</h3><p>${withTerms(g.simple)}</p>${artChips(g.arts)}</div>`).join("")}</div>
+ <div class="seg" role="group" aria-label="Huquq turini tanlash" id="cats"><button data-c="hammasi" aria-pressed="true">Hammasi</button>${CONTENT.cats.map(c=>`<button data-c="${c.id}" aria-pressed="false">${esc(c.name.replace(" huquqlar",""))}</button>`).join("")}</div>
+ <p class="muted" id="catdesc" style="margin:12px 0 16px"></p>
+ <div class="grid g2" id="rgrid"></div>${foot()}`;
+V.huquqlar.after=()=>{
+ const draw=()=>{
+  const c=CONTENT.cats.find(x=>x.id===rightsCat);
+  $("#catdesc").textContent=c?c.desc:`${CONTENT.rights.length} ta huquq, 5 turkum.`;
+  $("#rgrid").innerHTML=CONTENT.rights.filter(r=>rightsCat==="hammasi"||r.cat===rightsCat).map(r=>`<article class="card rcard"><div class="cat">${esc(CONTENT.cats.find(x=>x.id===r.cat).name)}</div><h3>${esc(r.title)}</h3><p>${withTerms(r.simple)}</p><div class="example"><b>Misol:</b> ${esc(r.example)}</div>
+   <details class="flip"><summary>Rasmiy matndan parcha</summary><blockquote>${esc(ART[r.arts[0]].text[0])}</blockquote></details>${artChips(r.arts)}</article>`).join("");
+ };
+ $$("#cats button").forEach(b=>b.onclick=()=>{rightsCat=b.dataset.c;$$("#cats button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));draw()});
+ $$("#cats button").forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.c===rightsCat)));draw();
+};
+
+let dayI=0;
+V.oquvchi=()=>`<div class="head"><h1>Oʻquvchi huquqlari</h1><p class="lead">${esc(CONTENT.student.intro)}</p></div>
+ <div class="grid g2">${CONTENT.student.cards.map(c=>`<article class="card"><h3>${esc(c.title)}</h3><p>${withTerms(c.simple)}</p>${artChips(c.arts)}</article>`).join("")}</div>
+ <section class="section"><h2>Bir kun maktabda</h2><p class="muted">Ertalabdan kechgacha — har bir lahzada qaysi huquq seni himoya qiladi?</p>
+ <div class="day"><div class="times" role="tablist" aria-label="Kun vaqtlari">${CONTENT.student.day.map((d,i)=>`<button role="tab" aria-selected="${i===dayI}" data-i="${i}"><b>${d.time}</b><span>${esc(d.title)}</span></button>`).join("")}</div>
+ <div class="dayview" id="dayview" role="tabpanel" aria-live="polite"></div></div></section>${foot()}`;
+V.oquvchi.after=()=>{
+ const draw=()=>{const d=CONTENT.student.day[dayI];$("#dayview").innerHTML=`<div class="clock">${d.time}</div><h3 style="margin:6px 0 8px">${esc(d.title)}</h3><p>${esc(d.text)}</p>${artChips(d.arts)}<div class="daynav"><button class="btn soft" id="dprev" ${dayI===0?"disabled":""}>‹ Oldingi</button><button class="btn" id="dnext" ${dayI===CONTENT.student.day.length-1?"disabled":""}>Keyingi ›</button></div>`;
+  $$(".times button").forEach(b=>b.setAttribute("aria-selected",String(+b.dataset.i===dayI)));
+  $("#dprev").onclick=()=>{dayI--;draw()};$("#dnext").onclick=()=>{dayI++;draw()};};
+ $$(".times button").forEach(b=>b.onclick=()=>{dayI=+b.dataset.i;draw()});draw();
+};
+
+V.burchlar=()=>`<div class="head"><h1>Fuqarolik burchlarim</h1><p class="lead">Huquqlar burchlar bilan birga yashaydi. Konstitutsiyaning XI bobi fuqarolarning burchlarini belgilaydi.</p></div>
+ <div class="grid g2">${CONTENT.duties.map(d=>`<article class="card rcard"><h3>${esc(d.title)}</h3><p>${withTerms(d.simple)}</p><div class="example"><b>Misol:</b> ${esc(d.example)}</div>${artChips(d.arts)}</article>`).join("")}</div>
+ <section class="section"><h2>Huquqmi yoki burchmi?</h2><p class="muted">Har bir jumlani toʻgʻri qutiga joylang: tugmani bosing yoki kartani qutiga sudrang.</p><div class="game" id="sortg"></div></section>${foot()}`;
+V.burchlar.after=()=>{
+ let deck,i,score,placed;
+ const start=()=>{deck=shuffle(CONTENT.sort);i=0;score=0;placed={huquq:[],burch:[]};draw()};
+ const draw=()=>{
+  const g=$("#sortg");
+  if(i>=deck.length){P.sortBest=Math.max(P.sortBest,score);save();g.innerHTML=`<div class="result"><div class="big">${score}/${deck.length}</div><p>${score===deck.length?"Ajoyib! Huquq va burchni aniq farqlaysiz.":"Yaxshi natija. Xatolarni modda matnidan tekshirib, yana urinib koʻring."}</p><button class="btn" id="sagain">Qaytadan</button></div>`;$("#sagain").onclick=start;return}
+  const c=deck[i];
+  g.innerHTML=`<div class="gtop"><span>${i+1} / ${deck.length}</span><div class="bar"><i style="width:${i/deck.length*100}%"></i></div><span>Toʻgʻri: ${score}</span></div>
+  <div class="sortcard" draggable="true" id="scard">${esc(c.s)}</div>
+  <div class="bins"><button class="bin h" data-k="huquq"><h3>Huquq <span>${placed.huquq.length}</span></h3><ul>${placed.huquq.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></button><button class="bin b" data-k="burch"><h3>Burch <span>${placed.burch.length}</span></h3><ul>${placed.burch.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></button></div><div id="sfb" aria-live="polite"></div>`;
+  const pick=k=>{if(g.dataset.lock)return;g.dataset.lock=1;const ok=k===c.k;if(ok)score++;placed[c.k].push(c.s);
+   $("#sfb").innerHTML=`<div class="fb ${ok?"ok":"no"}"><strong>${ok?"Toʻgʻri!":"Bu "+(c.k==="huquq"?"huquq":"burch")+"."}</strong>${c.art}-moddaga qarang. ${artChips([c.art])}<div class="row"><button class="btn" id="snext">Davom etish</button></div></div>`;
+   $$(".bin",g).forEach(b=>b.disabled=true);$("#snext").focus();$("#snext").onclick=()=>{delete g.dataset.lock;i++;draw()}};
+  $$(".bin",g).forEach(b=>{b.onclick=()=>pick(b.dataset.k);b.ondragover=e=>{e.preventDefault();b.classList.add("drag")};b.ondragleave=()=>b.classList.remove("drag");b.ondrop=e=>{e.preventDefault();b.classList.remove("drag");pick(b.dataset.k)}});
+  $("#scard").ondragstart=e=>e.dataTransfer.setData("text/plain","x");
+ };
+ start();
+};
+
+let gameTab="test", lvl=1;
+V.sinov=()=>`<div class="head"><h1>Huquqiy bilim sinovi</h1><p class="lead">Uch xil sinov: darajali test, rasmiy matndan moddani topish va tezkor “Huquqiy bilimdon”. Har bir javob rasmiy modda bilan izohlanadi.</p></div>
+ <div class="seg" role="group" aria-label="Sinov turi" id="gtabs"><button data-g="test">Test (36 savol)</button><button data-g="find">Moddani toping!</button><button data-g="blitz">Huquqiy bilimdon</button></div>
+ <div class="game" id="game"></div>${foot()}`;
+V.sinov.after=()=>{
+ const tabs=$$("#gtabs button");
+ const go=g=>{gameTab=g;tabs.forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.g===g)));clearInterval(blitzT);({test:testIntro,find:findGame,blitz:blitzIntro})[g]()};
+ tabs.forEach(b=>b.onclick=()=>go(b.dataset.g));go(gameTab);
+};
+const LV=["","Boshlangʻich","Oʻrta","Yuqori"];
+function testIntro(){
+ const g=$("#game");
+ g.innerHTML=`<h2>Darajani tanlang</h2><p class="muted">Har bir darajada 12 ta savol. Natija shu qurilmada saqlanadi.</p>
+ <div class="grid g3" style="margin-top:14px">${[1,2,3].map(l=>`<button class="opt" data-l="${l}" style="flex-direction:column;align-items:flex-start"><b style="font-family:var(--display)">${l}. ${LV[l]}</b><span class="muted">${["","Davlat ramzlari, asosiy huquqlar","Huquqlar kafolatlari, taʼlim, mehnat","Davlat tuzilishi, sud, Konstitutsiyaviy tartib"][l]}</span><span>${P.quiz[l]!=null?"Eng yaxshi natija: "+P.quiz[l]+"/12":"Hali topshirilmagan"}</span></button>`).join("")}</div>`;
+ $$("[data-l]",g).forEach(b=>b.onclick=()=>{lvl=+b.dataset.l;runTest()});
+}
+function runTest(){
+ const qs=shuffle(CONTENT.quiz.filter(q=>q.lvl===lvl));let i=0,score=0;const g=$("#game");
+ const draw=()=>{
+  if(i>=qs.length){P.quiz[lvl]=Math.max(P.quiz[lvl]||0,score);save();g.innerHTML=`<div class="result"><div class="muted">${LV[lvl]} daraja</div><div class="big">${score}/${qs.length}</div><p>${score>=10?"Aʼlo! Siz Konstitutsiyani yaxshi bilasiz.":score>=7?"Yaxshi! Xato qilgan moddalaringizni qayta oʻqib chiqing.":"Boshlanishi yaxshi. “Mening huquqlarim” boʻlimini koʻrib chiqib, yana urinib koʻring."}</p><div class="row" style="justify-content:center"><button class="btn" id="tagain">Qaytadan</button><button class="btn ghost" id="tlv">Boshqa daraja</button></div></div>`;$("#tagain").onclick=runTest;$("#tlv").onclick=testIntro;return}
+  const q=qs[i];const order=shuffle(q.o.map((t,k)=>k));
+  g.innerHTML=`<div class="gtop"><span>${LV[lvl]} · ${i+1}/${qs.length}</span><div class="bar"><i style="width:${i/qs.length*100}%"></i></div><span>Ball: ${score}</span></div>
+  <p class="qtext">${esc(q.q)}</p><div class="opts">${order.map((k,j)=>`<button class="opt" data-k="${k}"><span class="k">${"ABCD"[j]}</span>${esc(q.o[k])}</button>`).join("")}</div><div id="tfb" aria-live="polite"></div>`;
+  $$(".opt",g).forEach(b=>b.onclick=()=>{const k=+b.dataset.k,ok=k===q.a;if(ok)score++;
+   $$(".opt",g).forEach(x=>{x.disabled=true;if(+x.dataset.k===q.a)x.classList.add("ok")});if(!ok)b.classList.add("no");
+   $("#tfb").innerHTML=`<div class="fb ${ok?"ok":"no"}"><strong>${ok?"Toʻgʻri!":"Notoʻgʻri."}</strong>${esc(q.why)}${artChips([q.art])}<div class="row"><button class="btn" id="tnext">${i+1<qs.length?"Keyingi savol":"Natijani koʻrish"}</button></div></div>`;
+   $("#tnext").focus();$("#tnext").onclick=()=>{i++;draw()}});
+ };draw();
+}
+function findGame(){
+ const g=$("#game");const rounds=shuffle(CONTENT.findPool).slice(0,10);let i=0,score=0;
+ const draw=()=>{
+  if(i>=rounds.length){P.findBest=Math.max(P.findBest,score);save();g.innerHTML=`<div class="result"><div class="big">${score}/10</div><p>Modda raqamlarini eslab qolish — huquqingizni tez himoya qilishga yordam beradi.</p><button class="btn" id="fagain">Yana oʻynash</button></div>`;$("#fagain").onclick=findGame;return}
+  const n=rounds[i];const txt=ART[n].text[0];const cut=txt.length>220?txt.slice(0,220).replace(/\s\S*$/,"")+"…":txt;
+  const opts=shuffle([n,...shuffle(CONTENT.findPool.filter(x=>x!==n)).slice(0,3)]);
+  g.innerHTML=`<div class="gtop"><span>Moddani toping! · ${i+1}/10</span><div class="bar"><i style="width:${i*10}%"></i></div><span>Ball: ${score}</span></div>
+  <p class="muted">Bu jumla Konstitutsiyaning qaysi moddasidan olingan?</p><blockquote class="quote">“${esc(cut)}”</blockquote>
+  <div class="numopts">${opts.map(o=>`<button class="opt" data-n="${o}">${o}</button>`).join("")}</div><div id="ffb" aria-live="polite"></div>`;
+  $$(".opt",g).forEach(b=>b.onclick=()=>{const ok=+b.dataset.n===n;if(ok)score++;$$(".opt",g).forEach(x=>{x.disabled=true;if(+x.dataset.n===n)x.classList.add("ok")});if(!ok)b.classList.add("no");
+   const rel=CONTENT.rights.find(r=>r.arts.includes(n))||CONTENT.duties.find(r=>r.arts.includes(n));
+   $("#ffb").innerHTML=`<div class="fb ${ok?"ok":"no"}"><strong>${ok?"Topdingiz!":"Bu "+n+"-modda."}</strong>${rel?esc(rel.title)+": "+esc(rel.simple):esc(SECT_SHORT[ART[n].sec])+(ART[n].chap?" — "+esc(ART[n].chap):"")}${artChips([n])}<div class="row"><button class="btn" id="fnext">Keyingisi</button></div></div>`;$("#fnext").focus();$("#fnext").onclick=()=>{i++;draw()}});
+ };draw();
+}
+let blitzT=null;
+function blitzIntro(){
+ $("#game").innerHTML=`<div class="blitz"><h2>Huquqiy bilimdon</h2><p class="muted">60 soniya ichida iloji boricha koʻp gapga “Toʻgʻri” yoki “Notoʻgʻri” deb javob bering. Toʻgʻri javob +1, xato −1. Klaviaturada: ← notoʻgʻri, → toʻgʻri.</p><p>Eng yaxshi natija: <b>${P.blitzBest}</b></p><button class="btn" id="bstart">Boshlash</button></div>`;
+ $("#bstart").onclick=blitzRun;
+}
+function blitzRun(){
+ const deck=shuffle(CONTENT.blitz);let i=0,score=0,left=60,log=[];const g=$("#game");
+ g.innerHTML=`<div class="blitz"><div class="gtop"><span class="timer" id="btime">60</span><span>Ball: <b id="bscore">0</b></span></div><div class="stmt" id="bstmt" aria-live="polite"></div><div class="tf"><button class="f" data-v="0">Notoʻgʻri</button><button class="t" data-v="1">Toʻgʻri</button></div></div>`;
+ const show=()=>{$("#bstmt").textContent=deck[i%deck.length].s};
+ const end=()=>{clearInterval(blitzT);document.removeEventListener("keydown",kb);P.blitzBest=Math.max(P.blitzBest,score);save();
+  g.innerHTML=`<div class="result"><div class="muted">Vaqt tugadi</div><div class="big">${score}</div><p>${log.length} ta javob. Xatolaringiz:</p>${log.filter(l=>!l.ok).map(l=>`<p style="text-align:left">✗ ${esc(l.s)} — <b>${l.t?"Toʻgʻri":"Notoʻgʻri"}</b> <button class="art" data-art="${l.art}">${l.art}-modda</button></p>`).join("")||"<p>Xato yoʻq — zoʻr!</p>"}<div class="row" style="justify-content:center"><button class="btn" id="bagain">Yana oʻynash</button></div></div>`;$("#bagain").onclick=blitzRun};
+ const ans=v=>{const c=deck[i%deck.length];const ok=v===c.t;score+=ok?1:-1;if(score<0)score=0;log.push({s:c.s,t:c.t,art:c.art,ok});$("#bscore").textContent=score;
+  const s=$("#bstmt");s.classList.remove("flash","bad");void s.offsetWidth;s.classList.add("flash");if(!ok)s.classList.add("bad");i++;if(i>=deck.length*2){end();return}show()};
+ const kb=e=>{if(e.key==="ArrowLeft")ans(false);if(e.key==="ArrowRight")ans(true)};
+ document.addEventListener("keydown",kb);
+ $$(".tf button",g).forEach(b=>b.onclick=()=>ans(b.dataset.v==="1"));
+ show();blitzT=setInterval(()=>{left--;const t=$("#btime");if(!t){clearInterval(blitzT);document.removeEventListener("keydown",kb);return}t.textContent=left;if(left<=0)end()},1000);
+}
+
+let sitOpen=null;
+V.vaziyatlar=()=>`<div class="head"><h1>Hayotiy vaziyatlar</h1><p class="lead">Har bir voqeani oʻqing, qaysi huquq buzilganini va qaysi moddaga tayanish mumkinligini aniqlang. Oxirida — amaliy maslahatlar.</p></div>
+ <div id="sitwrap"></div>${foot()}`;
+V.vaziyatlar.after=()=>{sitOpen==null?sitList():sitRun(sitOpen)};
+function sitList(){
+ sitOpen=null;
+ $("#sitwrap").innerHTML=`<p class="muted">Yechilgan: ${P.sitDone.length} / ${CONTENT.situations.length}</p><div class="grid g2 sitlist">${CONTENT.situations.map((s,i)=>`<button class="card" data-s="${i}"><h3>${i+1}. ${esc(s.title)}</h3><p class="muted" style="font-size:.92rem">${esc(s.story.slice(0,120))}…</p>${P.sitDone.includes(i)?`<span class="done">✓ Yechilgan</span>`:""}</button>`).join("")}</div>`;
+ $$("[data-s]").forEach(b=>b.onclick=()=>sitRun(+b.dataset.s));
+}
+function sitRun(idx){
+ sitOpen=idx;const s=CONTENT.situations[idx];let step=0;const w=$("#sitwrap");
+ const shell=body=>`<div class="game"><div class="row" style="margin:0 0 14px;justify-content:space-between"><button class="btn soft" id="sback">‹ Barcha vaziyatlar</button><span class="muted">${idx+1} / ${CONTENT.situations.length}</span></div><div class="steps">${[0,1,2].map(k=>`<span class="${k<=step?"on":""}"></span>`).join("")}</div><h2>${esc(s.title)}</h2><p class="story" style="margin-top:12px">${esc(s.story)}</p>${body}</div>`;
+ const bind=()=>{$("#sback").onclick=sitList};
+ const q=(key,label,fmt)=>{const Q=s[key];const order=shuffle(Q.o.map((x,k)=>k));
+  w.innerHTML=shell(`<p class="qtext" style="margin-top:18px">${label}</p><div class="opts">${order.map((k,j)=>`<button class="opt" data-k="${k}"><span class="k">${"ABC"[j]}</span>${fmt(Q.o[k])}</button>`).join("")}</div><div id="sfb2" aria-live="polite"></div>`);bind();
+  $$(".opt",w).forEach(b=>b.onclick=()=>{const k=+b.dataset.k,ok=k===Q.a;
+   if(!ok){b.classList.add("no");b.disabled=true;$("#sfb2").innerHTML=`<div class="fb no"><strong>Yana oʻylab koʻring.</strong>Voqeada aynan nima buzilganiga eʼtibor bering.</div>`;return}
+   b.classList.add("ok");$$(".opt",w).forEach(x=>x.disabled=true);
+   $("#sfb2").innerHTML=`<div class="fb ok"><strong>Toʻgʻri!</strong>${key==="q2"?artChips([Q.o[Q.a]]):""}<div class="row"><button class="btn" id="snext2">Davom etish</button></div></div>`;$("#snext2").focus();$("#snext2").onclick=()=>{step++;next()}});
+ };
+ const next=()=>{
+  if(step===0) q("q1","1-qadam. Qaysi huquq buzildi?",esc);
+  else if(step===1) q("q2","2-qadam. Qaysi moddaga tayanish mumkin?",n=>`<b>${n}-modda</b>&nbsp;— ${esc(ART[n].text[0].slice(0,90))}…`);
+  else{ if(!P.sitDone.includes(idx)){P.sitDone.push(idx);save()}
+   w.innerHTML=shell(`<h3 style="margin-top:20px">3-qadam. Nima qilish kerak?</h3><ol class="todo">${s.steps.map(x=>`<li>${withTerms(x)}</li>`).join("")}</ol><p class="muted" style="font-size:.86rem">Bu umumiy maʼrifiy maslahat. Jiddiy holatda kattalar, maktab maʼmuriyati yoki huquqshunosga murojaat qiling.</p><div class="row">${idx+1<CONTENT.situations.length?`<button class="btn" id="snextsit">Keyingi vaziyat</button>`:""}<button class="btn ghost" id="slist">Roʻyxatga qaytish</button></div>`);bind();
+   $("#slist").onclick=sitList;const nx=$("#snextsit");if(nx)nx.onclick=()=>sitRun(idx+1);}
+  $("#view").scrollIntoView({block:"start"});
+ };next();
+}
+
+let lastQ="";
+V.qidiruv=()=>`<div class="head"><h1>Konstitutsiyadan qidirish</h1><p class="lead">Modda raqamini (masalan, <b>50</b>) yoki kalit soʻzni (masalan, <b>taʼlim</b>, <b>internet</b>) yozing. Qidiruv barcha 155 moddaning rasmiy matni boʻyicha ishlaydi.</p></div>
+ <form class="sbox" id="sform" role="search"><label for="q" class="sr">Qidiruv</label>${ico("qidiruv",'width="22" height="22" style="color:var(--xira)"')}<input id="q" type="search" autocomplete="off" placeholder="Modda raqami yoki kalit soʻz" value="${esc(lastQ)}"><button class="btn" type="submit">Qidirish</button></form>
+ <div class="hints">${["taʼlim","bola","internet","sud","mehnat","tabiat","saylov","oila","sogʻliq","til"].map(h=>`<button data-h="${h}">${h}</button>`).join("")}</div>
+ <div class="res" id="res" aria-live="polite"></div>
+ <section class="section toc"><h2>Mundarija</h2><p class="muted">Muqaddima, 6 boʻlim, 27 bob, 155 modda.</p>
+ <details><summary>Muqaddima</summary><div class="chap">${K.preamble.map(p=>`<p class="para">${esc(p)}</p>`).join("")}</div></details>
+ ${K.sections.map((s,si)=>`<details><summary>${si+1}-boʻlim. ${esc(SECT_SHORT[si])}</summary><div class="chap">${s.chapters.map(c=>`${c.title?`<h4>${esc(c.title)}</h4>`:""}<div class="nums">${c.articles.map(a=>`<button data-art="${a.n}" aria-label="${a.n}-modda">${a.n}</button>`).join("")}</div>`).join("")}</div></details>`).join("")}
+ </section>${foot()}`;
+V.qidiruv.after=()=>{
+ const run=()=>{
+  const raw=$("#q").value.trim();lastQ=raw;const box=$("#res");
+  if(!raw){box.innerHTML="";return}
+  const num=raw.match(/^(\d{1,3})(-?modda)?$/i);
+  if(num){const n=+num[1];box.innerHTML=ART[n]?row(n,ART[n].text[0]):`<p class="muted">Konstitutsiyada ${n}-modda yoʻq. Moddalar 1 dan 155 gacha.</p>`;return}
+  const q=norm(raw);if(q.length<2){box.innerHTML=`<p class="muted">Kamida 2 ta harf yozing.</p>`;return}
+  const hits=[];
+  Object.values(ART).forEach(a=>{const p=a.text.find(t=>norm(t).includes(q));if(p)hits.push([a.n,p])});
+  box.innerHTML=hits.length?`<p class="muted">${hits.length} ta modda topildi</p>`+hits.slice(0,60).map(([n,p])=>row(n,p,q)).join(""):`<p class="muted">“${esc(raw)}” soʻzi topilmadi. Soʻzning boshqa shaklini sinab koʻring (masalan, “taʼlim” oʻrniga “taʼl”).</p>`;
+ };
+ const row=(n,p,q)=>{let t=p.length>240?(()=>{if(!q)return p.slice(0,240)+"…";const at=Math.max(0,norm(p).indexOf(q)-80);return(at?"…":"")+p.slice(at,at+240)+"…"})():p;
+  let h=esc(t);if(q){const nt=norm(t);let out="",last=0,idx;while((idx=nt.indexOf(q,last))>-1){out+=esc(t.slice(last,idx))+"<mark>"+esc(t.slice(idx,idx+q.length))+"</mark>";last=idx+q.length}h=out+esc(t.slice(last))}
+  return `<button data-art="${n}"><span class="n">${n}-modda</span><span class="ch">${esc(ART[n].chap||SECT_SHORT[ART[n].sec])}</span><p>${h}</p></button>`};
+ $("#sform").onsubmit=e=>{e.preventDefault();run()};
+ $("#q").oninput=()=>{clearTimeout(run.t);run.t=setTimeout(run,180)};
+ $$("[data-h]").forEach(b=>b.onclick=()=>{$("#q").value=b.dataset.h;run()});
+ if(lastQ)run();
+};
+
+V.manbalar=()=>`<div class="head"><h1>Foydali manbalar</h1><p class="lead">Saytdagi barcha modda matnlari rasmiy manbadan oʻzgarishsiz olingan. Quyida — asl manbalar, lugʻat va saytning ishlash qoidalari.</p></div>
+ <div class="grid g2 srcs">${CONTENT.sources.map(s=>`<div class="card"><h3><a href="${s.url}" target="_blank" rel="noopener">${esc(s.name)}</a></h3><p class="muted" style="font-size:.9rem">${esc(s.note)}</p><p style="font-size:.8rem;word-break:break-all" class="muted">${esc(s.url)}</p></div>`).join("")}</div>
+ <div class="notice"><b>Matn tahriri haqida.</b> Saytda Konstitutsiyaning 2023-yil 30-apreldagi yangi tahriri, 2026-yil 13-iyuldagi OʻRQ-1158-sonli Konstitutsiyaviy Qonun bilan kiritilgan oʻzgartishlar bilan birga (15, 109, 131, 134, 151-moddalar) keltirilgan. Oxirgi tekshiruv: ${CHECKED}. Qonunchilikda oʻzgarish boʻlsa, matn qayta tekshiriladi.</div>
+ <section class="section"><h2>Huquqiy lugʻat</h2><p class="muted">Matnda nuqtali chiziq bilan belgilangan soʻzni bossangiz, uning maʼnosi chiqadi.</p>
+ <div class="gloss">${CONTENT.glossary.map(g=>`<div><b>${esc(g.t)}</b>${esc(g.d)}</div>`).join("")}</div></section>
+ <section class="section"><h2>Sayt qoidalari</h2><ol class="todo">
+  <li>Konstitutsiya moddalari rasmiy manbadan (lex.uz) olingan va oʻzgartirilmagan; har bir izoh yonida modda raqami va rasmiy manbaga havola bor.</li>
+  <li>Sodda tushuntirishlar va misollar maʼrifiy maqsadda yozilgan va oʻqituvchi tomonidan tekshiriladi.</li>
+  <li>Saytdan foydalanish uchun pasport, telefon, manzil yoki boshqa shaxsiy maʼlumot soʻralmaydi. Test natijalari faqat sizning qurilmangizda saqlanadi.</li>
+  <li>Rasmlar sayt uchun maxsus chizilgan.</li>
+  <li>Sayt rasmiy huquqiy maslahat oʻrnini bosmaydi.</li></ol>
+  <div class="row"><button class="btn ghost" id="reset">Natijalarimni tozalash</button></div></section>${foot()}`;
+V.manbalar.after=()=>{$("#reset").onclick=()=>{Object.assign(P,{read:[],quiz:{},sitDone:[],sortBest:0,blitzBest:0,findBest:0});save();toast("Natijalar tozalandi")}};
+
+/* ---------- router ---------- */
+function route(){
+ clearInterval(blitzT);
+ let h=(location.hash||"#bosh").slice(1);
+ let art=null;const m=h.match(/^modda-(\d+)$/);if(m){art=+m[1];h="qidiruv"}
+ if(!V[h])h="bosh";
+ $("#view").innerHTML=V[h]();if(V[h].after)V[h].after();
+ $$("[data-r]").forEach(a=>{if(a.dataset.r===h)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+ document.title=(ROUTES.find(r=>r[0]===h)||ROUTES[0])[1]+" — Konstitutsiyam";
+ window.scrollTo(0,0);
+ if(art&&ART[art])openArt(art);
+}
+addEventListener("hashchange",()=>{closeArt();route()});
+route();
+})();
+</script>
+</body>
+</html>
