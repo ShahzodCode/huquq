@@ -1,15 +1,23 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ART, CONTENT, SCOL, SECT_SHORT } from "../data";
 import { Icon } from "../components/Icon";
 import { Footer } from "../components/common";
 import { ROUTES } from "../routes";
-import { useArticle, useProgress } from "../context";
+import { useArticle, useProgress, useToast } from "../context";
+import { useOfficial } from "../components/Script";
+import { EXAMPLES } from "../components/Assistant";
+import { store } from "../hooks/useLocalStorage";
+import { cleanClass, encode, makeResult } from "../teacher";
 
 export default function Bosh() {
   const { P } = useProgress();
   const { openArt } = useArticle();
   const [sec, setSec] = useState<number | null>(null);
+  const official = useOfficial();
+  const navigate = useNavigate();
+  const [ask, setAsk] = useState("");
+  const go = (q: string) => q.trim() && navigate("/vaziyatlar?q=" + encodeURIComponent(q.trim()));
   const dayN = CONTENT.findPool[Math.floor(Date.now() / 864e5) % CONTENT.findPool.length];
   const badges: [string, string, boolean][] = [
     ["Kashfiyotchi", "10 ta moddani oʻqing", P.read.length >= 10],
@@ -60,6 +68,17 @@ export default function Bosh() {
           </div>
         </div>
       </section>
+      <form className="askbar" onSubmit={(e) => { e.preventDefault(); go(ask); }} role="search" aria-label="Huquqiy yordamchi">
+        <div className="askbar-label"><Icon k="spark" /> Huquqiy yordamchi</div>
+        <div className="askbar-row">
+          <label htmlFor="ask" className="sr">Vaziyatingizni yozing</label>
+          <input id="ask" value={ask} onChange={(e) => setAsk(e.target.value)} placeholder="Nima boʻldi? Masalan: maktabda darsga kirish uchun pul soʻrashyapti" autoComplete="off" />
+          <button className="btn" type="submit">Huquqimni topish <Icon k="arrow" /></button>
+        </div>
+        <div className="askbar-ex">
+          {EXAMPLES.slice(0, 3).map((x) => <button type="button" key={x} onClick={() => go(x)}>{x}</button>)}
+        </div>
+      </form>
       <div className="facts">
         <div><b>155</b><span>modda</span></div>
         <div><b>27</b><span>bob</span></div>
@@ -72,7 +91,7 @@ export default function Bosh() {
         <div className="daycard">
           <div className="num">{dayN}</div>
           <div>
-            <p>{ART[dayN].text[0]}</p>
+            <p data-official>{official(dayN).text[0]}</p>
             <button className="btn" onClick={() => openArt(dayN)}>Toʻliq oʻqish</button>
           </div>
         </div>
@@ -92,6 +111,7 @@ export default function Bosh() {
       <section className="section">
         <h2>Mening yutuqlarim</h2>
         <p className="muted">Natijalar faqat shu qurilmada saqlanadi. Oʻqilgan moddalar: {P.read.length} / 155.</p>
+        <ShareResult />
         <div className="badges">
           {badges.map(([t, d, on]) => (
             <div key={t} className={"badge" + (on ? " on" : "")}>
@@ -103,5 +123,53 @@ export default function Bosh() {
       </section>
       <Footer />
     </>
+  );
+}
+
+/** Student → teacher: a short result code with class code and register number only (no name). */
+function ShareResult() {
+  const { P } = useProgress();
+  const toast = useToast();
+  const [cls, setCls] = useState(() => store.get("cls", ""));
+  const [jr, setJr] = useState(() => store.get("jr", ""));
+  const [code, setCode] = useState("");
+  const valid = cleanClass(cls).length >= 3 && +jr >= 1 && +jr <= 60;
+  const make = () => {
+    store.set("cls", cls);
+    store.set("jr", jr);
+    setCode(encode(makeResult(P, cls, +jr)));
+  };
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(code);
+      toast("Kod nusxalandi — uni sinf guruhiga yuboring");
+    } catch {
+      toast("Nusxa olib boʻlmadi — kodni belgilab oling");
+    }
+  };
+  return (
+    <div className="share">
+      <div className="share-text">
+        <h3>Natijani oʻqituvchiga yuborish</h3>
+        <p className="muted">Oʻqituvchi bergan sinf kodini va jurnaldagi raqamingizni kiriting. Ismingiz kerak emas.</p>
+      </div>
+      <form className="share-form" onSubmit={(e) => { e.preventDefault(); if (valid) make(); }}>
+        <label>
+          <span>Sinf kodi</span>
+          <input value={cls} onChange={(e) => { setCls(e.target.value); setCode(""); }} placeholder="10A-K7Q" autoComplete="off" data-keep />
+        </label>
+        <label className="narrow">
+          <span>Jurnal №</span>
+          <input value={jr} onChange={(e) => { setJr(e.target.value.replace(/\D/g, "").slice(0, 2)); setCode(""); }} inputMode="numeric" placeholder="7" />
+        </label>
+        <button className="btn" type="submit" disabled={!valid}>Kod yaratish</button>
+      </form>
+      {code && (
+        <div className="share-code">
+          <code data-keep>{code}</code>
+          <button className="btn soft" onClick={copy}><Icon k="copy" /> Nusxa olish</button>
+        </div>
+      )}
+    </div>
   );
 }

@@ -249,3 +249,94 @@ Yangi oʻquv yili boshida maktabda bir oʻquvchiga: "Maʼlum summa toʻlamasang,
 - [ ] **Muqobil xizmat** — Qonunda nazarda tutilgan, harbiy xizmat oʻrniga oʻtaladigan xizmat.
 - [ ] **Fuqarolik jamiyati** — Jamoat birlashmalari, nodavlat tashkilotlar, mahalla va OAV kabi institutlar majmui.
 - [ ] **Muqaddima** — Konstitutsiyaning kirish qismi: maqsad va qadriyatlar bayoni.
+## 4. Yangi matnlar (v3) — tekshirish kerak
+
+Quyidagi matnlar yangi qoʻshildi va qoida 7 boʻyicha oʻqituvchi tekshiruvini talab qiladi.
+
+### Vaziyatlar: variantlar va izohlar
+
+**1. Ruxsatsiz ochilgan telefon**
+- [ ] Yozishmalar siri va shaxsiy hayot daxlsizligi — Toʻgʻri: Dilnozaning shaxsiy xabarlari ruxsatsiz ochilib, boshqalarga tarqatildi.
+- [ ] Fikr va soʻz erkinligi — Soʻz erkinligi oʻz fikringni aytish haqida. Bekzod oʻz fikrini emas, boshqaning sirini tarqatdi.
+- [ ] Mulkdor boʻlish huquqi — Telefon — Dilnozaning mulki, lekin u olib qoʻyilmadi. Buzilgan narsa — xabarlar siri.
+- [ ] Taʼlim olish huquqi — Voqea maktabda boʻldi, lekin Dilnoza darsdan mahrum qilinmadi.
+- [ ] 31-modda — Toʻgʻri: 31-modda yozishmalar, telefon va elektron xabarlar sir saqlanishini kafolatlaydi.
+- [ ] 33-modda — 33-modda axborot tarqatish huquqini beradi, ammo boshqaning shaxsiy yozishmalarini emas.
+- [ ] 41-modda — 41-modda mulkdor boʻlish haqida — telefonning oʻzi joyida qoldi.
+- [ ] 34-modda — 34-modda davlat organlaridagi hujjatlar bilan tanishish haqida.
+
+**2. Pandussiz maktab**
+- [ ] Inklyuziv taʼlim olish huquqi — Toʻgʻri: alohida ehtiyojli bola oddiy maktabda boshqalar bilan birga oʻqish huquqiga ega.
+- [ ] Erkin harakatlanish huquqi — Erkin harakatlanish — mamlakat boʻylab yurish va yashash joyini tanlash huquqi, maktabga qabul emas.
+- [ ] Sogʻliqni saqlash huquqi — Sardor davolanish emas, oʻqish uchun murojaat qildi.
+- [ ] Ijtimoiy taʼminot huquqi — Ijtimoiy taʼminot — pensiya va nafaqalar haqida.
+- [ ] 50-modda — Toʻgʻri: 50-moddaning oxirgi qismi inklyuziv taʼlim va tarbiyani kafolatlaydi.
+- [ ] 32-modda — 32-modda mamlakat boʻylab harakatlanish haqida.
+- [ ] 48-modda — 48-modda tibbiy xizmat haqida.
+- [ ] 46-modda — 46-modda pensiya va nafaqalar haqida.
+
+**3. Dars oʻrniga bozor**
+- [ ] Bolalar mehnatidan himoyalanish va taʼlim olish huquqi — Toʻgʻri: bolaning sogʻligʻiga va oʻqishiga zarar yetkazadigan mehnat taqiqlangan.
+- [ ] Munosib mehnat va ish haqi huquqi — Munosib mehnat kattalarning ish sharoiti haqida. Jasurning holatida bunday mehnat umuman taqiqlangan.
+- [ ] Dam olish huquqi — Jasur charchamoqda, lekin asosiy muammo — u dars oʻrniga ishlashga majbur.
+- [ ] Mulkdor boʻlish huquqi — Voqeada hech kimning mulki olinmadi.
+- [ ] 44-modda — Toʻgʻri: 44-moddada bolaning taʼlim olishiga toʻsqinlik qiluvchi mehnat taqiqlanadi.
+- [ ] 42-modda — 42-modda kattalarning mehnat sharoiti va ish haqi haqida.
+- [ ] 45-modda — 45-modda yollanib ishlovchilarning dam olishi haqida.
+- [ ] 43-modda — 43-modda bandlik va ishsizlikdan himoya haqida.
+
+**4. "Sen bizdan emassan"**
+- [ ] Qonun oldida tenglik va qadr-qimmat huquqi — Toʻgʻri: tili va kelib chiqishi sababli kamsitish mumkin emas.
+- [ ] Vijdon erkinligi — Vijdon erkinligi dinga eʼtiqod qilish haqida, bu yerda gap tilda.
+- [ ] Erkin harakatlanish huquqi — Oʻquvchi boshqa shahardan erkin koʻchib keldi — bu huquqi buzilmadi.
+- [ ] Birlashmalarga uyushish huquqi — Guruh loyihasi — jamoat birlashmasi emas.
+- [ ] 19-modda — Toʻgʻri: 19-modda tili, millati va kelib chiqishidan qatʼi nazar tenglikni kafolatlaydi.
+- [ ] 35-modda — 35-modda din va eʼtiqod erkinligi haqida.
+- [ ] 32-modda — 32-modda yashash joyini tanlash haqida.
+- [ ] 39-modda — 39-modda kasaba uyushmalari va partiyalar haqida.
+
+**5. Kesilayotgan daraxtlar**
+- [ ] Qulay atrof-muhit va u haqda axborot olish huquqi — Toʻgʻri: oʻquvchilar atrof-muhitga taʼsir haqida ishonchli axborot olish huquqiga ega.
+- [ ] Murojaat qilish huquqi — Bu huquq — himoya vositasi: oʻquvchilar u orqali javob soʻrashi mumkin. Buzilgan huquq esa boshqa.
+- [ ] Tarixiy merosni asrash burchi — Bu fuqarolarning burchi, buzilgan huquq emas.
+- [ ] Dam olish huquqi — Bogʻ dam olish joyi, lekin muammo — atrof-muhit va axborot yoʻqligi.
+- [ ] 49-modda — Toʻgʻri: 49-modda qulay atrof-muhit va u haqdagi ishonchli axborot huquqini kafolatlaydi.
+- [ ] 40-modda — 40-modda — murojaat qilish yoʻli. Uni 3-qadamda ishlatasiz.
+- [ ] 62-modda — 62-modda fuqarolarning tabiatga ehtiyotkorlik burchi haqida.
+- [ ] 61-modda — 61-modda tarixiy va madaniy merosni asrash burchi haqida.
+
+**6. Kamsituvchi post**
+- [ ] Shaʼn, qadr-qimmat va shaxsiy maʼlumotlar himoyasi — Toʻgʻri: ruxsatsiz surat va kamsituvchi izoh Malikaning shaʼnini kamsitadi.
+- [ ] Fikr va soʻz erkinligi — Soʻz erkinligi boshqalarning shaʼnini kamsitishga ruxsat bermaydi.
+- [ ] Ijod erkinligi — Post muallifi ijod qilmadi — u birovning suratini ruxsatsiz tarqatdi.
+- [ ] Axborot olish huquqi — Malika axborot olishdan mahrum qilinmadi.
+- [ ] 26-modda — Toʻgʻri: 26-modda shaʼn va qadr-qimmat daxlsizligini kafolatlaydi.
+- [ ] 33-modda — 33-modda soʻz erkinligi haqida, lekin u boshqaning shaʼnini kamsitishga ruxsat bermaydi.
+- [ ] 53-modda — 53-modda ijod erkinligi va intellektual mulk haqida.
+- [ ] 81-modda — 81-modda ommaviy axborot vositalari erkinligi haqida.
+
+**7. Ushlangan aka**
+- [ ] Ushlanganda huquqlarini bilish va advokat yordamidan foydalanish huquqi — Toʻgʻri: ushlangan shaxsga sababi tushuntirilishi va advokat berilishi shart.
+- [ ] Aybsizlik prezumpsiyasi — Aybsizlik prezumpsiyasi sud jarayoni haqida. Bu yerda ushlash tartibi buzildi.
+- [ ] Erkin harakatlanish huquqi — Erkin harakatlanish mamlakat boʻylab yurish haqida, ushlash tartibi esa alohida moddada.
+- [ ] Murojaat qilish huquqi — Murojaat — himoya yoʻli, buzilgan huquq emas.
+- [ ] 29-modda — Toʻgʻri: 29-modda ushlangan paytdan boshlab advokat yordamidan foydalanish huquqini beradi.
+- [ ] 28-modda — 28-modda aybsizlik prezumpsiyasi haqida — aybni sud isbotlaydi.
+- [ ] 32-modda — 32-modda mamlakat boʻylab harakatlanish haqida.
+- [ ] 30-modda — 30-modda eʼlon qilinmagan qonun asosida jazolash taqiqi haqida.
+
+**8. Darsga kirish uchun pul**
+- [ ] Bepul umumiy oʻrta taʼlim olish huquqi — Toʻgʻri: umumiy oʻrta taʼlim bepul va majburiy.
+- [ ] Soliq toʻlash burchi — Soliq qonun bilan belgilanadi va davlatga toʻlanadi. Darsga kirish uchun pul soliq emas.
+- [ ] Oliy taʼlim olish huquqi — Oliy taʼlim — universitetlar haqida. Bu yerda gap maktab haqida.
+- [ ] Mulkdor boʻlish huquqi — Pul — mulk, lekin asosiy muammo: bolaning bepul oʻqish huquqi buzildi.
+- [ ] 50-modda — Toʻgʻri: 50-modda bepul umumiy oʻrta taʼlimni kafolatlaydi.
+- [ ] 51-modda — 51-modda oliy taʼlim haqida.
+- [ ] 63-modda — 63-modda qonunda belgilangan soliqlar haqida.
+- [ ] 41-modda — 41-modda mulkdor boʻlish haqida.
+
+### Huquqiy yordamchi
+
+- [ ] Xavf haqida ogohlantirish: “Hayotingiz yoki sogʻligʻingizga xavf boʻlsa, darhol 102 (politsiya) yoki 103 (tez yordam) raqamiga qoʻngʻiroq qiling va yaqin kattalarga xabar bering.”
+- [ ] Umumiy qadamlar: yozib qoʻyish; ishonchli kattalarga aytish; murojaat (40-m.); sud orqali himoya (55-m.); huquqshunos maslahati (29-m.).
+- [ ] Kundalik soʻzlar → moddalar lugʻati: `src/data/concepts.ts` (45 ta tushuncha). Har bir bogʻlanish modda matniga solishtirilgan; soʻzlar roʻyxatini koʻrib chiqing.

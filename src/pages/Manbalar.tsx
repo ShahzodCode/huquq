@@ -40,6 +40,8 @@ export default function Manbalar() {
           <li>Konstitutsiya moddalari rasmiy manbadan (lex.uz) olingan va oʻzgartirilmagan; har bir izoh yonida modda raqami va rasmiy manbaga havola bor.</li>
           <li>Sodda tushuntirishlar va misollar maʼrifiy maqsadda yozilgan va oʻqituvchi tomonidan tekshiriladi.</li>
           <li>Saytdan foydalanish uchun pasport, telefon, manzil yoki boshqa shaxsiy maʼlumot soʻralmaydi. Test natijalari faqat sizning qurilmangizda saqlanadi.</li>
+          <li>Huquqiy yordamchida sunʼiy intellekt (Google Gemini) yoqilgan boʻlsa, yozilgan vaziyat tahlil uchun unga yuboriladi — u yerga ism, telefon yoki manzil yozmang. Sunʼiy intellektni bitta tugma bilan oʻchirish mumkin; unda tahlil faqat qurilmada bajariladi.</li>
+          <li>Sunʼiy intellekt javoblari “tekshirilmagan” deb belgilanadi. U faqat sayt tanlagan moddalar orasidan tanlay oladi, modda matni esa doim rasmiy manbadan oʻzgarishsiz koʻrsatiladi.</li>
           <li>Rasmlar sayt uchun maxsus chizilgan.</li>
           <li>Sayt rasmiy huquqiy maslahat oʻrnini bosmaydi.</li>
         </ol>

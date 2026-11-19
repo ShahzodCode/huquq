@@ -59,6 +59,31 @@ describe("app", () => {
     expect(JSON.parse(localStorage.getItem("kh_progress")!).quiz["1"]).toBeGreaterThanOrEqual(0);
   });
 
+  it("navigates between pages without crashing", async () => {
+    const user = userEvent.setup();
+    go("#/bosh");
+    for (const name of ["Mening huquqlarim", "Hayotiy vaziyatlar", "Oʻqituvchi paneli", "Bosh sahifa"]) {
+      await user.click(screen.getAllByRole("link", { name: new RegExp("^" + name) })[0]);
+      expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument();
+    }
+  });
+
+  it("assistant finds the article for a described situation", async () => {
+    const user = userEvent.setup();
+    go("#/vaziyatlar");
+    await user.type(screen.getByLabelText("Vaziyatingizni yozing"), "Sinfdoshim telefonimni ochib, xabarlarimni tarqatdi{Enter}");
+    expect(await screen.findByRole("button", { name: "31-moddani ochish" })).toBeInTheDocument();
+  });
+
+  it("switches the interface to Cyrillic and back", async () => {
+    const user = userEvent.setup();
+    go("#/bosh");
+    await user.click(screen.getAllByRole("button", { name: "Кирилл" })[0]);
+    expect(await screen.findByRole("heading", { level: 1, name: /Конституциям/ })).toBeInTheDocument();
+    await user.click(screen.getAllByRole("button", { name: "Lotin" })[0]);
+    expect(await screen.findByRole("heading", { level: 1, name: /Konstitutsiyam/ })).toBeInTheDocument();
+  });
+
   it("toggles dark theme", async () => {
     const user = userEvent.setup();
     go("#/bosh");

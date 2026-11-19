@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { ART, CONTENT } from "../data";
+import { CONTENT } from "../data";
 import { ArtChips, Footer, Segmented, Terms } from "../components/common";
+import { useOfficial } from "../components/Script";
 
 // kept at module level so the chosen category survives navigation (as in the original)
 let rightsCat = "hammasi";
@@ -12,6 +13,7 @@ export default function Huquqlar() {
     setCatState(c);
   };
   const c = CONTENT.cats.find((x) => x.id === cat);
+  const official = useOfficial();
   return (
     <>
       <div className="head">
@@ -52,7 +54,7 @@ export default function Huquqlar() {
               <div className="example"><b>Misol:</b> {r.example}</div>
               <details className="flip">
                 <summary>Rasmiy matndan parcha</summary>
-                <blockquote>{ART[r.arts[0]].text[0]}</blockquote>
+                <blockquote data-official>{official(r.arts[0]).text[0]}</blockquote>
               </details>
               <ArtChips arts={r.arts} />
             </article>

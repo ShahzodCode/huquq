@@ -1,6 +1,6 @@
 export interface Article {
   n: number;
-  anchor: string;
+  anchor?: string;
   text: string[];
   notes?: string[];
 }
@@ -22,8 +22,9 @@ export interface BlitzItem { s: string; t: boolean; art: number }
 export interface Situation {
   title: string;
   story: string;
-  q1: { o: string[]; a: number };
-  q2: { o: number[]; a: number };
+  /** options, correct index, and a short "why / why not" for every option */
+  q1: { o: string[]; a: number; why: string[] };
+  q2: { o: number[]; a: number; why: string[] };
   steps: string[];
 }
 export interface GlossaryTerm { t: string; d: string }
@@ -46,6 +47,8 @@ export interface Progress {
   read: number[];
   quiz: Record<string, number>;
   sitDone: number[];
+  /** best score per situation (0–4: 2 points per step on the first try, 1 on the second) */
+  sitScore: Record<string, number>;
   sortBest: number;
   blitzBest: number;
   findBest: number;

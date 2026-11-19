@@ -8,6 +8,7 @@ import Sinov from "./pages/Sinov";
 import Vaziyatlar from "./pages/Vaziyatlar";
 import Qidiruv from "./pages/Qidiruv";
 import Manbalar from "./pages/Manbalar";
+import Oqituvchi from "./pages/Oqituvchi";
 import { AppProviders } from "./context";
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="vaziyatlar" element={<Vaziyatlar />} />
           <Route path="qidiruv" element={<Qidiruv />} />
           <Route path="manbalar" element={<Manbalar />} />
+          <Route path="oqituvchi" element={<Oqituvchi />} />
           {/* deep link: #/modda-50 opens the article drawer (handled in AppProviders) */}
           <Route path="modda-:n" element={<Qidiruv />} />
           <Route path="*" element={<Navigate to="/bosh" replace />} />

@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { Icon } from "./Icon";
 import { ArticleDrawer } from "./ArticleDrawer";
+import { ScriptLayer } from "./Script";
 import { ROUTES, TABS, TAB_NAME } from "../routes";
 import { useArticle, useSettings, useSheet } from "../context";
 
@@ -23,9 +24,13 @@ const Brand = ({ size }: { size: number }) => (
 );
 
 function Tools() {
-  const { theme, changeFs, toggleTheme } = useSettings();
+  const { theme, script, changeFs, toggleTheme, toggleScript } = useSettings();
   return (
     <>
+      <div className="scriptsw" role="group" aria-label="Yozuv" data-keep>
+        <button aria-pressed={script === "lat"} onClick={() => script !== "lat" && toggleScript()} lang="uz">Lotin</button>
+        <button aria-pressed={script === "cyr"} onClick={() => script !== "cyr" && toggleScript()} lang="uz-Cyrl">Кирилл</button>
+      </div>
       <button className="tbtn" onClick={() => changeFs(-1)} aria-label="Matnni kichraytirish">A−</button>
       <button className="tbtn" onClick={() => changeFs(1)} aria-label="Matnni kattalashtirish">A+</button>
       <button className="tbtn" onClick={toggleTheme}>{theme === "dark" ? "Kunduzgi rejim" : "Tungi rejim"}</button>
@@ -42,9 +47,12 @@ export function Layout() {
   const moreBtn = useRef<HTMLButtonElement>(null);
 
   const key = pathname.replace(/^\//, "") || "bosh";
+  const { script } = useSettings();
   useEffect(() => {
-    const r = ROUTES.find((x) => x[0] === key) || ROUTES[0];
+    const r = key === "oqituvchi" ? [key, "Oʻqituvchi paneli"] : ROUTES.find((x) => x[0] === key) || ROUTES[0];
     document.title = r[1] + " — Konstitutsiyam";
+  }, [key, script]);
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, [key]);
 
@@ -65,6 +73,10 @@ export function Layout() {
               </NavLink>
             ))}
           </nav>
+          <NavLink className="teachlink" to="/oqituvchi">
+            <Icon k="oqituvchi" />
+            <span>Oʻqituvchi paneli</span>
+          </NavLink>
           <div className="tools"><Tools /></div>
         </aside>
         <div className="main">
@@ -87,6 +99,7 @@ export function Layout() {
         </button>
       </nav>
       <ArticleDrawer />
+      <ScriptLayer />
       {sheetOpen && <div className="scrim on" onClick={closeArt} />}
       <div className={"sheet" + (sheetOpen ? " on" : "")} role="dialog" aria-label="Boshqa boʻlimlar">
         {ROUTES.filter((r) => !TABS.includes(r[0])).map(([k, n], i) => (
@@ -95,6 +108,10 @@ export function Layout() {
             {n}
           </NavLink>
         ))}
+        <NavLink to="/oqituvchi" onClick={closeArt}>
+          <Icon k="oqituvchi" />
+          Oʻqituvchi paneli
+        </NavLink>
         <div className="tools"><Tools /></div>
       </div>
     </>

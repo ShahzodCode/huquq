@@ -3,6 +3,7 @@ import { ART, CONTENT, SECT_SHORT } from "../data";
 import { ArtChips, Footer, Segmented } from "../components/common";
 import { shuffle } from "../hooks/shuffle";
 import { useArticle, useProgress } from "../context";
+import { useOfficial } from "../components/Script";
 
 type Tab = "test" | "find" | "blitz";
 let tabMemo: Tab = "test";
@@ -151,6 +152,7 @@ function Find() {
 }
 
 function FindRun({ onAgain }: { onAgain: () => void }) {
+  const official = useOfficial();
   const { update } = useProgress();
   const rounds = useMemo(() => shuffle(CONTENT.findPool).slice(0, 10), []);
   const [i, setI] = useState(0);
@@ -180,7 +182,7 @@ function FindRun({ onAgain }: { onAgain: () => void }) {
       </div>
     );
 
-  const txt = ART[n].text[0];
+  const txt = official(n).text[0];
   const cut = txt.length > 220 ? txt.slice(0, 220).replace(/\s\S*$/, "") + "…" : txt;
   const rel = CONTENT.rights.find((r) => r.arts.includes(n)) || CONTENT.duties.find((r) => r.arts.includes(n));
   const ok = picked === n;
@@ -192,7 +194,7 @@ function FindRun({ onAgain }: { onAgain: () => void }) {
         <span>Ball: {score}</span>
       </div>
       <p className="muted">Bu jumla Konstitutsiyaning qaysi moddasidan olingan?</p>
-      <blockquote className="quote">“{cut}”</blockquote>
+      <blockquote className="quote" data-official>“{cut}”</blockquote>
       <div className="numopts">
         {opts.map((o) => (
           <button

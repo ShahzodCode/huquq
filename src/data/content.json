@@ -1214,18 +1214,32 @@
    "q1": {
     "o": [
      "Yozishmalar siri va shaxsiy hayot daxlsizligi",
-     "Taʼlim olish huquqi",
-     "Mulkdor boʻlish huquqi"
+     "Fikr va soʻz erkinligi",
+     "Mulkdor boʻlish huquqi",
+     "Taʼlim olish huquqi"
     ],
-    "a": 0
+    "a": 0,
+    "why": [
+     "Toʻgʻri: Dilnozaning shaxsiy xabarlari ruxsatsiz ochilib, boshqalarga tarqatildi.",
+     "Soʻz erkinligi oʻz fikringni aytish haqida. Bekzod oʻz fikrini emas, boshqaning sirini tarqatdi.",
+     "Telefon — Dilnozaning mulki, lekin u olib qoʻyilmadi. Buzilgan narsa — xabarlar siri.",
+     "Voqea maktabda boʻldi, lekin Dilnoza darsdan mahrum qilinmadi."
+    ]
    },
    "q2": {
     "o": [
      31,
-     50,
-     45
+     33,
+     41,
+     34
     ],
-    "a": 0
+    "a": 0,
+    "why": [
+     "Toʻgʻri: 31-modda yozishmalar, telefon va elektron xabarlar sir saqlanishini kafolatlaydi.",
+     "33-modda axborot tarqatish huquqini beradi, ammo boshqaning shaxsiy yozishmalarini emas.",
+     "41-modda mulkdor boʻlish haqida — telefonning oʻzi joyida qoldi.",
+     "34-modda davlat organlaridagi hujjatlar bilan tanishish haqida."
+    ]
    },
    "steps": [
     "Skrinshotlarni oʻchirishni soʻra va guruh adminiga murojaat qil.",
@@ -1239,18 +1253,32 @@
    "q1": {
     "o": [
      "Inklyuziv taʼlim olish huquqi",
-     "Dam olish huquqi",
-     "Erkin harakatlanish huquqi"
+     "Erkin harakatlanish huquqi",
+     "Sogʻliqni saqlash huquqi",
+     "Ijtimoiy taʼminot huquqi"
     ],
-    "a": 0
+    "a": 0,
+    "why": [
+     "Toʻgʻri: alohida ehtiyojli bola oddiy maktabda boshqalar bilan birga oʻqish huquqiga ega.",
+     "Erkin harakatlanish — mamlakat boʻylab yurish va yashash joyini tanlash huquqi, maktabga qabul emas.",
+     "Sardor davolanish emas, oʻqish uchun murojaat qildi.",
+     "Ijtimoiy taʼminot — pensiya va nafaqalar haqida."
+    ]
    },
    "q2": {
     "o": [
      50,
      32,
-     45
+     48,
+     46
     ],
-    "a": 0
+    "a": 0,
+    "why": [
+     "Toʻgʻri: 50-moddaning oxirgi qismi inklyuziv taʼlim va tarbiyani kafolatlaydi.",
+     "32-modda mamlakat boʻylab harakatlanish haqida.",
+     "48-modda tibbiy xizmat haqida.",
+     "46-modda pensiya va nafaqalar haqida."
+    ]
    },
    "steps": [
     "Ota-ona bilan birga xalq taʼlimi boʻlimiga yozma ariza bilan murojaat qilish mumkin (40-modda).",
@@ -1264,18 +1292,32 @@
    "q1": {
     "o": [
      "Bolalar mehnatidan himoyalanish va taʼlim olish huquqi",
-     "Mulk huquqi",
-     "Soʻz erkinligi"
+     "Munosib mehnat va ish haqi huquqi",
+     "Dam olish huquqi",
+     "Mulkdor boʻlish huquqi"
     ],
-    "a": 0
+    "a": 0,
+    "why": [
+     "Toʻgʻri: bolaning sogʻligʻiga va oʻqishiga zarar yetkazadigan mehnat taqiqlangan.",
+     "Munosib mehnat kattalarning ish sharoiti haqida. Jasurning holatida bunday mehnat umuman taqiqlangan.",
+     "Jasur charchamoqda, lekin asosiy muammo — u dars oʻrniga ishlashga majbur.",
+     "Voqeada hech kimning mulki olinmadi."
+    ]
    },
    "q2": {
     "o": [
      44,
-     41,
-     33
+     42,
+     45,
+     43
     ],
-    "a": 0
+    "a": 0,
+    "why": [
+     "Toʻgʻri: 44-moddada bolaning taʼlim olishiga toʻsqinlik qiluvchi mehnat taqiqlanadi.",
+     "42-modda kattalarning mehnat sharoiti va ish haqi haqida.",
+     "45-modda yollanib ishlovchilarning dam olishi haqida.",
+     "43-modda bandlik va ishsizlikdan himoya haqida."
+    ]
    },
    "steps": [
     "Bunday mehnat Jasurning sogʻligʻiga va oʻqishiga zarar yetkazmoqda — bu taqiqlangan.",
@@ -1289,18 +1331,32 @@
    "q1": {
     "o": [
      "Qonun oldida tenglik va qadr-qimmat huquqi",
-     "Soliq toʻlash burchi",
-     "Saylash huquqi"
+     "Vijdon erkinligi",
+     "Erkin harakatlanish huquqi",
+     "Birlashmalarga uyushish huquqi"
     ],
-    "a": 0
+    "a": 0,
+    "why": [
+     "Toʻgʻri: tili va kelib chiqishi sababli kamsitish mumkin emas.",
+     "Vijdon erkinligi dinga eʼtiqod qilish haqida, bu yerda gap tilda.",
+     "Oʻquvchi boshqa shahardan erkin koʻchib keldi — bu huquqi buzilmadi.",
+     "Guruh loyihasi — jamoat birlashmasi emas."
+    ]
    },
    "q2": {
     "o": [
      19,
-     63,
-     128
+     35,
+     32,
+     39
     ],
-    "a": 0
+    "a": 0,
+    "why": [
+     "Toʻgʻri: 19-modda tili, millati va kelib chiqishidan qatʼi nazar tenglikni kafolatlaydi.",
+     "35-modda din va eʼtiqod erkinligi haqida.",
+     "32-modda yashash joyini tanlash haqida.",
+     "39-modda kasaba uyushmalari va partiyalar haqida."
+    ]
    },
    "steps": [
     "Tili va millatidan qatʼi nazar, hamma teng (19-modda); hech narsa kamsitish uchun asos boʻla olmaydi (26-modda).",
@@ -1314,18 +1370,32 @@
    "q1": {
     "o": [
      "Qulay atrof-muhit va u haqda axborot olish huquqi",
-     "Uy-joy daxlsizligi",
+     "Murojaat qilish huquqi",
+     "Tarixiy merosni asrash burchi",
      "Dam olish huquqi"
     ],
-    "a": 0
+    "a": 0,
+    "why": [
+     "Toʻgʻri: oʻquvchilar atrof-muhitga taʼsir haqida ishonchli axborot olish huquqiga ega.",
+     "Bu huquq — himoya vositasi: oʻquvchilar u orqali javob soʻrashi mumkin. Buzilgan huquq esa boshqa.",
+     "Bu fuqarolarning burchi, buzilgan huquq emas.",
+     "Bogʻ dam olish joyi, lekin muammo — atrof-muhit va axborot yoʻqligi."
+    ]
    },
    "q2": {
     "o": [
      49,
-     47,
-     45
+     40,
+     62,
+     61
     ],
-    "a": 0
+    "a": 0,
+    "why": [
+     "Toʻgʻri: 49-modda qulay atrof-muhit va u haqdagi ishonchli axborot huquqini kafolatlaydi.",
+     "40-modda — murojaat qilish yoʻli. Uni 3-qadamda ishlatasiz.",
+     "62-modda fuqarolarning tabiatga ehtiyotkorlik burchi haqida.",
+     "61-modda tarixiy va madaniy merosni asrash burchi haqida."
+    ]
    },
    "steps": [
     "Har kim atrof-muhit holati haqida ishonchli axborot olish huquqiga ega (49-modda).",
@@ -1339,18 +1409,32 @@
    "q1": {
     "o": [
      "Shaʼn, qadr-qimmat va shaxsiy maʼlumotlar himoyasi",
-     "Mehnat huquqi",
-     "Erkin harakatlanish"
+     "Fikr va soʻz erkinligi",
+     "Ijod erkinligi",
+     "Axborot olish huquqi"
     ],
-    "a": 0
+    "a": 0,
+    "why": [
+     "Toʻgʻri: ruxsatsiz surat va kamsituvchi izoh Malikaning shaʼnini kamsitadi.",
+     "Soʻz erkinligi boshqalarning shaʼnini kamsitishga ruxsat bermaydi.",
+     "Post muallifi ijod qilmadi — u birovning suratini ruxsatsiz tarqatdi.",
+     "Malika axborot olishdan mahrum qilinmadi."
+    ]
    },
    "q2": {
     "o": [
      26,
-     42,
-     32
+     33,
+     53,
+     81
     ],
-    "a": 0
+    "a": 0,
+    "why": [
+     "Toʻgʻri: 26-modda shaʼn va qadr-qimmat daxlsizligini kafolatlaydi.",
+     "33-modda soʻz erkinligi haqida, lekin u boshqaning shaʼnini kamsitishga ruxsat bermaydi.",
+     "53-modda ijod erkinligi va intellektual mulk haqida.",
+     "81-modda ommaviy axborot vositalari erkinligi haqida."
+    ]
    },
    "steps": [
     "Postni skrinshot qilib dalil sifatida saqla, lekin uni oʻzing tarqatma.",
@@ -1364,18 +1448,32 @@
    "q1": {
     "o": [
      "Ushlanganda huquqlarini bilish va advokat yordamidan foydalanish huquqi",
-     "Taʼlim olish huquqi",
-     "Mulk huquqi"
+     "Aybsizlik prezumpsiyasi",
+     "Erkin harakatlanish huquqi",
+     "Murojaat qilish huquqi"
     ],
-    "a": 0
+    "a": 0,
+    "why": [
+     "Toʻgʻri: ushlangan shaxsga sababi tushuntirilishi va advokat berilishi shart.",
+     "Aybsizlik prezumpsiyasi sud jarayoni haqida. Bu yerda ushlash tartibi buzildi.",
+     "Erkin harakatlanish mamlakat boʻylab yurish haqida, ushlash tartibi esa alohida moddada.",
+     "Murojaat — himoya yoʻli, buzilgan huquq emas."
+    ]
    },
    "q2": {
     "o": [
      29,
-     50,
-     41
+     28,
+     32,
+     30
     ],
-    "a": 0
+    "a": 0,
+    "why": [
+     "Toʻgʻri: 29-modda ushlangan paytdan boshlab advokat yordamidan foydalanish huquqini beradi.",
+     "28-modda aybsizlik prezumpsiyasi haqida — aybni sud isbotlaydi.",
+     "32-modda mamlakat boʻylab harakatlanish haqida.",
+     "30-modda eʼlon qilinmagan qonun asosida jazolash taqiqi haqida."
+    ]
    },
    "steps": [
     "Ushlash chogʻida shaxsga tushunarli tilda huquqlari va ushlash asoslari tushuntirilishi shart (27-modda).",
@@ -1389,18 +1487,32 @@
    "q1": {
     "o": [
      "Bepul umumiy oʻrta taʼlim olish huquqi",
-     "Senzura taqiqi",
-     "Soliq toʻlash burchi"
+     "Soliq toʻlash burchi",
+     "Oliy taʼlim olish huquqi",
+     "Mulkdor boʻlish huquqi"
     ],
-    "a": 0
+    "a": 0,
+    "why": [
+     "Toʻgʻri: umumiy oʻrta taʼlim bepul va majburiy.",
+     "Soliq qonun bilan belgilanadi va davlatga toʻlanadi. Darsga kirish uchun pul soliq emas.",
+     "Oliy taʼlim — universitetlar haqida. Bu yerda gap maktab haqida.",
+     "Pul — mulk, lekin asosiy muammo: bolaning bepul oʻqish huquqi buzildi."
+    ]
    },
    "q2": {
     "o": [
      50,
-     82,
-     63
+     51,
+     63,
+     41
     ],
-    "a": 0
+    "a": 0,
+    "why": [
+     "Toʻgʻri: 50-modda bepul umumiy oʻrta taʼlimni kafolatlaydi.",
+     "51-modda oliy taʼlim haqida.",
+     "63-modda qonunda belgilangan soliqlar haqida.",
+     "41-modda mulkdor boʻlish haqida."
+    ]
    },
    "steps": [
     "Davlat bepul umumiy oʻrta taʼlimni kafolatlaydi (50-modda) — darsga qoʻymaslik uchun toʻlov sabab boʻla olmaydi.",

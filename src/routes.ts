@@ -4,7 +4,7 @@ export const ROUTES: [string, string, string][] = [
   ["oquvchi", "Oʻquvchi huquqlari", "Taʼlim, bolalar va yoshlar huquqlari"],
   ["burchlar", "Fuqarolik burchlarim", "Qonunga rioya, hurmat, tabiat va merosni asrash"],
   ["sinov", "Huquqiy bilim sinovi", "36 savol, “Moddani toping!” va “Huquqiy bilimdon”"],
-  ["vaziyatlar", "Hayotiy vaziyatlar", "8 ta voqea: qaysi huquq buzildi?"],
+  ["vaziyatlar", "Hayotiy vaziyatlar", "Huquqiy yordamchi va 8 ta voqea"],
   ["qidiruv", "Konstitutsiyadan qidirish", "Modda raqami yoki kalit soʻz boʻyicha"],
   ["manbalar", "Foydali manbalar", "Rasmiy matn, lugʻat va qoidalar"],
 ];

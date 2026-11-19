@@ -5,7 +5,7 @@ import { store, useLocalStorage } from "./hooks/useLocalStorage";
 import { ART } from "./data";
 
 /* ---------- progress ---------- */
-const EMPTY: Progress = { read: [], quiz: {}, sitDone: [], sortBest: 0, blitzBest: 0, findBest: 0 };
+const EMPTY: Progress = { read: [], quiz: {}, sitDone: [], sitScore: {}, sortBest: 0, blitzBest: 0, findBest: 0 };
 
 interface ProgressCtx {
   P: Progress;
@@ -19,9 +19,12 @@ export const useProgress = () => useContext(ProgressContext);
 interface SettingsCtx {
   fs: number;
   theme: "light" | "dark";
+  script: Script;
   changeFs: (d: number) => void;
   toggleTheme: () => void;
+  toggleScript: () => void;
 }
+export type Script = "lat" | "cyr";
 const SettingsContext = createContext<SettingsCtx>(null as never);
 export const useSettings = () => useContext(SettingsContext);
 
@@ -57,14 +60,23 @@ export function AppProviders({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<"light" | "dark">(() =>
     store.get<"light" | "dark">("theme", "light"),
   );
+  const [script, setScript] = useState<Script>(() => store.get<Script>("script", "lat"));
   useEffect(() => {
     document.documentElement.style.setProperty("--fs", fs + "px");
     document.documentElement.dataset.theme = theme;
-  }, [fs, theme]);
+    document.documentElement.lang = script === "cyr" ? "uz-Cyrl" : "uz";
+  }, [fs, theme, script]);
   const settings = useMemo<SettingsCtx>(
     () => ({
       fs,
       theme,
+      script,
+      toggleScript: () =>
+        setScript((v) => {
+          const n = v === "cyr" ? "lat" : "cyr";
+          store.set("script", n);
+          return n;
+        }),
       changeFs: (d) =>
         setFs((v) => {
           const n = Math.min(22, Math.max(14, v + d));
@@ -78,7 +90,7 @@ export function AppProviders({ children }: { children: ReactNode }) {
           return n;
         }),
     }),
-    [fs, theme],
+    [fs, theme, script],
   );
 
   const [toastMsg, setToastMsg] = useState("");

@@ -41,8 +41,16 @@ describe("search", () => {
     const r = search("taʼlim");
     expect(r.kind === "hits" && r.hits.length).toBeGreaterThan(0);
   });
+  it("finds inflected and Cyrillic forms, ranked", () => {
+    for (const q of ["bolalarning", "таълим", "internetdan"]) {
+      const r = search(q);
+      expect(r.kind === "hits" && r.hits.length, q).toBeGreaterThan(0);
+    }
+    const r = search("internet");
+    expect(r.kind === "hits" && r.hits[0][0]).toBe(33);
+  });
   it("highlights matches without HTML", () => {
-    const parts = excerpt("Davlat tili — oʻzbek tili.", "tili");
+    const parts = excerpt("Davlat tili — oʻzbek tili.", ["til"]);
     expect(parts.filter((p) => p.mark)).toHaveLength(2);
     expect(parts.map((p) => p.text).join("")).toBe("Davlat tili — oʻzbek tili.");
   });

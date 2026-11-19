@@ -1,0 +1,11 @@
+name = "konstitutsiyam-ai"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+# Comma-separated list of sites allowed to call this proxy (localhost is always allowed).
+ALLOWED_ORIGINS = "https://shahzodcode.github.io"
+GEMINI_MODEL = "gemini-2.5-flash"
+
+# The key is a secret, never put it here. Set it with:
+#   npx wrangler secret put GEMINI_API_KEY

@@ -29,3 +29,17 @@ K.sections.forEach((s, si) =>
 
 export const norm = (s: string) =>
   s.toLowerCase().replace(/[ʻʼ'‘’`´]/g, "'").replace(/ё/g, "е");
+
+/* ---------- official Cyrillic text (lex.uz/docs/6445145), same structure as the Latin one ---------- */
+import constitutionCyrJson from "./constitution.cyr.json";
+export const K_CYR = constitutionCyrJson as unknown as Constitution;
+export const LEX_CYR = "https://lex.uz/docs/6445145";
+/** Cyrillic paragraphs/notes/chapter title per article number (paragraph indexes match the Latin text 1:1). */
+export const ART_CYR: Record<number, { text: string[]; notes?: string[]; chap: string; secTitle: string }> = {};
+K_CYR.sections.forEach((s) =>
+  s.chapters.forEach((c) =>
+    c.articles.forEach((a) => {
+      ART_CYR[a.n] = { text: a.text, notes: a.notes, chap: c.title, secTitle: s.title };
+    }),
+  ),
+);
