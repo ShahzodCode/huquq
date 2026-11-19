@@ -8,7 +8,7 @@ export const aiAvailable = () => !!aiUrl();
 
 export interface AiReply { arts: number[]; answer: string }
 
-export async function askAI(text: string, candidates: number[], timeoutMs = 15000): Promise<AiReply | null> {
+export async function askAI(text: string, candidates: number[], timeoutMs = 20000): Promise<AiReply | null> {
   const AI_URL = aiUrl();
   if (!AI_URL || !candidates.length) return null;
   const ctrl = new AbortController();

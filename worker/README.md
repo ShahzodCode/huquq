@@ -37,5 +37,7 @@ If the site is hosted somewhere other than `https://shahzodcode.github.io`, add 
   labelled “tekshirilmagan” (unchecked).
 - If the Worker or Gemini fails, or the free quota runs out, the site silently keeps the offline result.
 
-The model is set by `GEMINI_MODEL` in `wrangler.toml`. If Google retires that model, change the
-name to a current Flash model and redeploy.
+The models are set by `GEMINI_MODELS` in `wrangler.toml` (tried in order; if one is down, overloaded
+or slow, the next is used). If Google retires a model (it answers 404), replace its name with a
+current Flash-Lite model from <https://ai.google.dev/gemini-api/docs/models> and redeploy.
+Avoid "thinking" models here: their hidden reasoning can use up the output limit and cut off the reply.
