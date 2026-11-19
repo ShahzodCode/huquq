@@ -61,3 +61,56 @@ describe("assistant with AI", () => {
     expect(screen.getByText(/hech qayerga yuborilmaydi/)).toBeInTheDocument();
   });
 });
+
+describe("floating AI chat", () => {
+  it("is announced, answers, and only cites articles we offered", async () => {
+    const f = vi.fn(async (_url: string, init: RequestInit) => {
+      const body = JSON.parse(String(init.body));
+      const offered = body.candidates.map((c: { n: number }) => c.n);
+      return { ok: true, json: async () => ({ arts: [offered[0], 999], answer: "Bu haqda Konstitutsiyada aytilgan." }) } as Response;
+    });
+    vi.stubGlobal("fetch", f);
+    const user = userEvent.setup();
+    window.location.hash = "#/bosh";
+    render(<HashRouter><App /></HashRouter>);
+    await user.click(screen.getByRole("button", { name: "AI yordamchi bilan suhbatni ochish" }));
+    expect(screen.getByRole("dialog", { name: "AI yordamchi" })).toBeInTheDocument();
+    await user.type(screen.getByLabelText("Savolingiz"), "Sinfdoshim telefonimni ochib xabarlarimni oʻqidi{Enter}");
+    expect(await screen.findByText("Bu haqda Konstitutsiyada aytilgan.")).toBeInTheDocument();
+    const body = JSON.parse(String(f.mock.calls[0][1].body));
+    expect(body.mode).toBe("chat");
+    expect(body.messages).toEqual([{ role: "user", text: "Sinfdoshim telefonimni ochib xabarlarimni oʻqidi" }]);
+    const chips = screen.getAllByRole("button", { name: /-moddani ochish$/ }).filter((b) => b.closest(".chat"));
+    expect(chips).toHaveLength(1);
+    expect(chips[0]).toHaveAccessibleName(`${body.candidates[0].n}-moddani ochish`);
+    // Esc first closes the article opened from the chat, then the chat itself
+    await user.click(chips[0]);
+    await user.keyboard("{Escape}");
+    expect(screen.getByRole("dialog", { name: "AI yordamchi" })).toBeInTheDocument();
+    await user.keyboard("{Escape}");
+    expect(screen.queryByRole("dialog", { name: "AI yordamchi" })).not.toBeInTheDocument();
+  });
+  it("sends the conversation history and shows a fallback when the AI fails", async () => {
+    let call = 0;
+    const f = vi.fn(async () => (++call === 1
+      ? ({ ok: true, json: async () => ({ arts: [], answer: "Birinchi javob." }) } as Response)
+      : ({ ok: false, json: async () => ({}) } as Response)));
+    vi.stubGlobal("fetch", f);
+    const user = userEvent.setup();
+    window.location.hash = "#/bosh";
+    render(<HashRouter><App /></HashRouter>);
+    await user.click(screen.getByRole("button", { name: "AI yordamchi bilan suhbatni ochish" }));
+    await user.type(screen.getByLabelText("Savolingiz"), "Konstitutsiya nima?{Enter}");
+    await screen.findByText("Birinchi javob.");
+    await user.type(screen.getByLabelText("Savolingiz"), "Yana tushuntir{Enter}");
+    expect(await screen.findByText(/hozir javob bermadi/)).toBeInTheDocument();
+    const body = JSON.parse(String((f.mock.calls[1] as unknown as [string, RequestInit])[1].body));
+    expect(body.messages.map((m: { role: string }) => m.role)).toEqual(["user", "model", "user"]);
+  });
+  it("is hidden when no AI proxy is configured", () => {
+    vi.stubEnv("VITE_AI_URL", "");
+    window.location.hash = "#/bosh";
+    render(<HashRouter><App /></HashRouter>);
+    expect(screen.queryByRole("button", { name: "AI yordamchi bilan suhbatni ochish" })).not.toBeInTheDocument();
+  });
+});

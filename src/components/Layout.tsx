@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { Icon } from "./Icon";
 import { ArticleDrawer } from "./ArticleDrawer";
+import { AiChat } from "./AiChat";
 import { ScriptLayer } from "./Script";
 import { ROUTES, TABS, TAB_NAME } from "../routes";
 import { useArticle, useSettings, useSheet } from "../context";
@@ -98,6 +99,7 @@ export function Layout() {
           <span>Yana</span>
         </button>
       </nav>
+      <AiChat />
       <ArticleDrawer />
       <ScriptLayer />
       {sheetOpen && <div className="scrim on" onClick={closeArt} />}

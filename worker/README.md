@@ -24,7 +24,8 @@ keeps the key secret and forwards requests to Gemini. Both services have free ti
 
    (for local testing put the same line in `.env.local`), then rebuild with `npm run build`.
 
-If the site is hosted somewhere other than `https://shahzodcode.github.io`, add that address to
+If the site is hosted somewhere other than `https://konstitutsiyam.vercel.app` or `https://shahzodcode.github.io`
+(for example a Vercel preview URL), add that address to
 `ALLOWED_ORIGINS` in `wrangler.toml` and run `npx wrangler deploy` again.
 
 ## How it stays safe

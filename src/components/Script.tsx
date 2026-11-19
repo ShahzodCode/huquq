@@ -42,7 +42,7 @@ export function ScriptLayer() {
       t.nodeValue = to;
     };
     const doAttrs = (el: Element) => {
-      if (el.closest(SKIP) && !(el instanceof HTMLInputElement)) return;
+      if (el.closest(SKIP) && !(el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement)) return;
       for (const a of ATTRS) {
         const v = el.getAttribute(a);
         if (!v || !/[A-Za-z]/.test(v)) continue;

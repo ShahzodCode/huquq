@@ -4,7 +4,7 @@ compatibility_date = "2025-01-01"
 
 [vars]
 # Comma-separated list of sites allowed to call this proxy (localhost is always allowed).
-ALLOWED_ORIGINS = "https://shahzodcode.github.io"
+ALLOWED_ORIGINS = "https://konstitutsiyam.vercel.app,https://shahzodcode.github.io"
 # Tried in order; the next one is used if one is down, overloaded or slow.
 GEMINI_MODELS = "gemini-3.1-flash-lite,gemini-3.5-flash-lite"
 

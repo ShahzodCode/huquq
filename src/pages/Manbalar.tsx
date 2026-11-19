@@ -41,6 +41,7 @@ export default function Manbalar() {
           <li>Sodda tushuntirishlar va misollar maʼrifiy maqsadda yozilgan va oʻqituvchi tomonidan tekshiriladi.</li>
           <li>Saytdan foydalanish uchun pasport, telefon, manzil yoki boshqa shaxsiy maʼlumot soʻralmaydi. Test natijalari faqat sizning qurilmangizda saqlanadi.</li>
           <li>Huquqiy yordamchida sunʼiy intellekt (Google Gemini) yoqilgan boʻlsa, yozilgan vaziyat tahlil uchun unga yuboriladi — u yerga ism, telefon yoki manzil yozmang. Sunʼiy intellektni bitta tugma bilan oʻchirish mumkin; unda tahlil faqat qurilmada bajariladi.</li>
+          <li>Pastki oʻng burchakdagi “AI yordamchi” suhbatida yozgan xabarlaringiz javob olish uchun Google Gemini sunʼiy intellektiga yuboriladi va faqat sahifa ochiq turganda saqlanadi. U yerga ham shaxsiy maʼlumot yozmang.</li>
           <li>Sunʼiy intellekt javoblari “tekshirilmagan” deb belgilanadi. U faqat sayt tanlagan moddalar orasidan tanlay oladi, modda matni esa doim rasmiy manbadan oʻzgarishsiz koʻrsatiladi.</li>
           <li>Rasmlar sayt uchun maxsus chizilgan.</li>
           <li>Sayt rasmiy huquqiy maslahat oʻrnini bosmaydi.</li>
