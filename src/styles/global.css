@@ -71,7 +71,7 @@ p{margin:.5em 0}
 .art:hover{background:var(--kobalt);color:#fff}
 :root[data-theme="dark"] .art:hover{color:#0E1729}
 .btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:12px;padding:11px 18px;font-weight:600;cursor:pointer;background:var(--kobalt);color:#fff;text-decoration:none}
-:root[data-theme="dark"] .btn{color:#0E1729}
+:root[data-theme="dark"] .btn:not(.ghost):not(.soft){color:#0E1729}
 .btn:hover{filter:brightness(1.08)}
 .btn.ghost{background:transparent;color:var(--kobalt);border:1.5px solid var(--kobalt)}
 .btn.soft{background:var(--firuza-soft);color:var(--matn)}

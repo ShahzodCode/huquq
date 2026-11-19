@@ -55,7 +55,7 @@ export function AppProviders({ children }: { children: ReactNode }) {
 
   const [fs, setFs] = useState<number>(() => store.get("fs", 17));
   const [theme, setTheme] = useState<"light" | "dark">(() =>
-    store.get<"light" | "dark">("theme", matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"),
+    store.get<"light" | "dark">("theme", "light"),
   );
   useEffect(() => {
     document.documentElement.style.setProperty("--fs", fs + "px");
